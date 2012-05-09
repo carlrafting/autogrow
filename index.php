@@ -10,7 +10,6 @@
 
 <header role="banner">
 <h1>autogrow</h1>
-<p class="intro">Make textareas more pleasant to use, by expanding them.</p>
 </header>
 
 <div role="main">

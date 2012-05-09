@@ -68,6 +68,9 @@ h1 {
 font-size: 3em;
 font-weight: bold;
 color: #f85210;
+border-bottom: 1px solid #eaeaea;
+padding-bottom: .3333333333333333em;
+margin-bottom: .6666666666666666em;
 }
 h2 {
 font-weight: bold;
@@ -107,12 +110,6 @@ color: #aaa;
 
 /* @group page components */
 
-.intro {
-color: #aaa;
-font-size: 1.5em;
-border-bottom: 1px solid #eaeaea;
-padding-bottom: .95833333333333em;
-}
 .autogrow-container { margin-bottom: 1.5em; }
 
 /* @end page components */
