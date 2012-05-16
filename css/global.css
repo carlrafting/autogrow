@@ -39,8 +39,12 @@ background: #fff;
 text-rendering: optimizeLegibility;
 }
 p,
-pre {
+pre,
+ul {
 margin-bottom: 1.5em;
+}
+ul {
+list-style: square;
 }
 pre {
 white-space: pre;
@@ -68,9 +72,6 @@ h1 {
 font-size: 3em;
 font-weight: bold;
 color: #f85210;
-border-bottom: 1px solid #eaeaea;
-padding-bottom: .3333333333333333em;
-margin-bottom: .6666666666666666em;
 }
 h2 {
 font-weight: bold;
@@ -109,6 +110,13 @@ color: #aaa;
 /* @end default */
 
 /* @group page components */
+
+.tagline {
+color: #aaa;
+font-size: 1.5em;
+border-bottom: 1px solid #eaeaea;
+padding-bottom: .95833333333333em;
+}
 
 .autogrow-container { margin-bottom: 1.5em; }
 

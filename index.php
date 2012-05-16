@@ -10,15 +10,16 @@
 
 <header role="banner">
 <h1>autogrow</h1>
+<p class="tagline">Less frustrating textareas</p>
 </header>
 
 <div role="main">
 
 <h2>Background</h2>
 
-<p>Sometimes textareas suck. Often times they're not very pleasant to use, especially when you're going to write lots of text, because at some point that scrollbar will appear, and nobody likes that. Right? It certainly doesn't make for a very nice user experience.</p>
+<p>Sometimes textareas suck. Often times they're not very pleasant to use, especially when you're going to write lots of text, because at some point that scrollbar will appear, and nobody likes that. Right? It certainly doesn't make for a very nice user-experience.</p>
 
-<p>So this is what autogrow is trying to solve. There are other scripts like this out there, but many of them depend on jQuery, autogrow doesn't. Then <cite><a href="http://www.alistapart.com/articles/expanding-text-areas-made-elegant/">“Expanding Text Areas Made Elegant”</a></cite> by <a href="http://nmjenkins.com/">Neil Jenkins</a> got published and he demonstrated a very nice way to deal with expanding textareas, autogrow is based on his code, but made to be more reusable, customizable and well... Slightly different.</p>
+<p>So this is what autogrow is trying to solve. There are other scripts like this out there, but many of them depend on jQuery, autogrow doesn't. Then <cite><a href="http://www.alistapart.com/articles/expanding-text-areas-made-elegant/">“Expanding Text Areas Made Elegant”</a></cite> by <a href="http://nmjenkins.com/">Neil Jenkins</a> got published and he demonstrated a very nice way to deal with expanding textareas, autogrow is based on his code, but made to be more reusable, customizable and well... Slightly different. You can read some <a href="http://carlrafting.com/autogrow-less-frustrating-textareas">more background in this blog post</a>.</p>
 
 <h2>Try it out!</h2>
 
@@ -84,6 +85,20 @@
   <code>areaClass: 'your-area-class'</code>
 <code>});</code>
 </pre>
+
+<h2>Browser support</h2>
+<p>The code for autogrow is tested and is working in the following browsers:</p>
+
+<ul>
+<li>Chrome 18</li>
+<li>Firefox 11</li>
+<li>Safari 5</li>
+<li>Opera 11 (Kinda works) *</li>
+</ul>
+
+<p>* <small>Kinda works in Opera 11, but there's a quite annoying flickering when entering new lines. At the moment the solution is to use browser-sniffing and address the issue specifically for Opera, but i want to avoid that. I'll see if i can address this in a sane way in a future release.</small></p>
+
+<p>Browsers that doesn't support autogrow should instead get a standard textarea, instead of the enhanced autogrowing one.</p>
 
 </div>
 
