@@ -9,6 +9,7 @@
   background: transparent;
   font-size: inherit;
   line-height: inherit;
+  white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
   border: 0;
@@ -25,9 +26,6 @@
 
 .autogrow-mirror {
   display: none;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 .autogrow-active .autogrow {
