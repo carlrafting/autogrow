@@ -23,7 +23,13 @@
   width: 100%;
 }
 
-.autogrow-mirror { display: none; }
+.autogrow-mirror {
+  display: none;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .autogrow-active .autogrow {
   overflow: hidden;
   position: absolute;
