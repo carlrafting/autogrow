@@ -5,56 +5,103 @@
  * Based on code from "Expanding Text Areas Made Elegant" by Neil Jenkins:
  * http://www.alistapart.com/articles/expanding-text-areas-made-elegant/
  */
-
-var autogrow = (function (win) {
-
-  var doc = win.document;
-
-  function init(options) {
-   
-    var containerClass = (options && options.containerClass) || 'autogrow-container',
-        container_arr,
-        mirrorClass = (options && options.mirrorClass) || 'autogrow-mirror',
-        spanClass = (options && options.spanClass) || 'autogrow-mirror-span',
-        activeClass = (options && options.activeClass) || 'autogrow-active',
-        areaClass = (options && options.areaClass) || 'autogrow',
-        i,
-        l,
-        createArea;
-
-    if (doc.querySelectorAll && doc.body.classList && doc.addEventListener) {
-
-      createArea = function(container) {
-        var mirror = '<pre class="' + mirrorClass + '">' +
-                       '<span class="' + spanClass + '"></span>' +
-                       '<br>' +
-                     '</pre>',
-            area,
-            span;
-        container.innerHTML += mirror;
-        area = container.querySelector('textarea');
-        span = container.querySelector('span');
-        area.classList.add(areaClass);        
-        doc.addEventListener('input', function (event) {
-          if (event.target.classList.contains('autogrow')) {
-            span.textContent = area.value;
-          }        
-        }, false);
-        span.textContent = area.value;
-        container.classList.add(activeClass);
-      };
-
-      container_arr = doc.querySelectorAll('.' + containerClass);
-      l = container_arr.length;
-
-      for (i = 0; i < l; i+=1) {
-        createArea(container_arr[i]);
-      }
  
+(function (win, doc, undefined) {
+  'use strict';
+  
+  if (!doc.querySelector) return;
+  
+  function mixin(src, dest) {
+    for (var key in src) {
+      if (src.hasOwnProperty(key)) {
+        dest[key] = src[key];
+      }
+    }
+    
+    return dest;
+  }
+  
+  function classToSelector(className) {
+    return '.' + className;
+  }
+  
+  var autogrow = (function () {
+    var defaults = {
+      containerClass: 'autogrow-container',
+      mirrorClass: 'autogrow-mirror',
+      spanClass: 'autogrow-mirror-span',
+      activeClass: 'autogrow-active',
+      areaClass: 'autogrow'
+    };
+    
+    function render(containerSelector, html, activeClass) {
+      var i, container,
+      containers = doc.querySelectorAll(containerSelector),     
+      l = containers.length;
+      
+      for (i = 0; i < l; i+=1) {
+        container = containers[i];
+        container.innerHTML += html;
+        container.classList.add(activeClass);
+      }
     }
 
-  }
- 
-  return { init: init };
- 
-}(this));
+    function init(options) {
+      if (options === undefined) options = {};
+      
+      options = mixin(defaults, options);
+     
+      // variable definitions for later use
+      var areas, spans,
+  
+      // assign properties from options object to local variables
+      // for more memory efficiancy
+      containerClass = options.containerClass,
+      mirrorClass = options.mirrorClass,
+      spanClass = options.spanClass,
+      activeClass = options.activeClass,
+      areaClass = options.areaClass,
+      
+      mirrorHtml = '<pre class="' + mirrorClass + '">' +
+                     '<span class="' + spanClass + '"></span>' +
+                     '<br>' +
+                   '</pre>',
+
+      // selector variables
+      containerSelector = classToSelector(containerClass),
+      areaSelector = classToSelector(areaClass),
+      spanSelector = classToSelector(spanClass);
+
+      // render mirror html
+      render(containerSelector, mirrorHtml, activeClass);
+
+      areas = document.querySelectorAll(areaSelector);
+      spans = document.querySelectorAll(spanSelector);
+      
+      for (var i = 0; i < areas.length; i++) {
+        areas[i].classList.add(areaClass);
+        spans[i].textContent = areas[i].value;
+      }
+      
+      doc.addEventListener('input', function (event) {
+        var target = event.target;
+        
+        if (target.classList.contains(areaSelector)) {
+          span = 
+          span.textContent = area.value;
+        }        
+      }, false);
+    
+      return {
+        focus: function () {
+          document.querySelector(areaSelector).focus();  
+        }
+      };
+    }
+   
+    return { init: init };
+   
+  }());
+
+  win.autogrow = autogrow;
+}(this, this.document));

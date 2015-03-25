@@ -10,8 +10,9 @@
       margin: 3em 25%;
     }
     textarea {
+      color: #666;
+      font: inherit;
       margin: 0;
-      padding: 0;
     }
   </style>
 </head>
@@ -23,8 +24,14 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, modi, earum sed 
 </textarea>
 </div>
 
+<div class="autogrow-container">
+<textarea class="autogrow" rows="15" cols="40">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, modi, earum sed voluptates praesentium sit saepe iusto tempora rem ipsam? Ex quas eaque sunt qui hic nemo neque voluptas nisi!
+</textarea>
+</div>
+
 <script src="autogrow.js"></script>
-<script>autogrow.init();</script>
+<script>autogrow.init().focus();</script>
   
 </body>
 </html>
