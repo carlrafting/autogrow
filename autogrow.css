@@ -2,13 +2,17 @@
   position: relative;
   border: 1px solid #ccc;
   background: #fff;
+  margin-bottom: 1.5em;
 }
 
 .autogrow,
 .autogrow-mirror {
   background: transparent;
+  font: inherit;
+  /*
   font-size: inherit;
   line-height: inherit;
+  */
   white-space: pre-wrap;
   word-wrap: break-word;
   border: 0;
