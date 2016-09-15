@@ -1,3 +1,20 @@
 h1. autogrow
 
 Less frustrating text areas...
+
+h2. Project home:
+"https://github.com/carlrafting/autogrow":http://carlrafting.com/autogrow
+
+h2. Source code:
+"https://github.com/carlrafting/autogrow":https://github.com/carlrafting/autogrow
+
+h2. Blog post:
+"http://carlrafting.com/autogrow-less-frustrating-textareas":http://carlrafting.com/autogrow-less-frustrating-textareas
+
+Based on code from "Expanding Text Areas Made Elegant":http://www.alistapart.com/articles/expanding-text-areas-made-elegant/ by Neil Jenkins:
+
+h2. Download:
+"https://github.com/carlrafting/autogrow/downloads":https://github.com/carlrafting/autogrow/downloads
+
+Clone:
+$ git clone git@github.com:carlrafting/autogrow.git
