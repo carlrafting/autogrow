@@ -1,9 +1,13 @@
 # autogrow
 
-Less frustrating text areas...
+Less frustrating textareas...
 
-## Blog post:
+## Getting Started
 
-http://carlrafting.com/autogrow-less-frustrating-textareas
+See the [project site](//carlrafting.com/autogrow), for information on dowloading & using autogrow.
 
-Based on code from [Expanding Text Areas Made Elegant](http://www.alistapart.com/articles/expanding-text-areas-made-elegant/) by Neil Jenkins:
+## Background
+
+Read my blog post [autogrow — Less frustrating textareas](http://carlrafting.com/autogrow-less-frustrating-textareas) for more background.
+
+autogrow is based on code from [Expanding Text Areas Made Elegant](http://www.alistapart.com/articles/expanding-text-areas-made-elegant/) by Neil Jenkins.

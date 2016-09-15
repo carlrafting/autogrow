@@ -6,10 +6,6 @@ background: #fff;
 .autogrow,
 .autogrow-mirror {
 background: transparent;
-/*
-font-size: inherit;
-line-height: inherit;
-*/
 font: inherit;
 white-space: pre-wrap;
 word-wrap: break-word;
