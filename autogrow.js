@@ -5,56 +5,108 @@
  * Based on code from "Expanding Text Areas Made Elegant" by Neil Jenkins:
  * http://www.alistapart.com/articles/expanding-text-areas-made-elegant/
  */
+(function (global) {
 
-var autogrow = (function (win) {
+var containerClass, mirrorClass, spanClass, activeClass, areaClass,
+    autogrow = {},
+    doc = global.document;
 
-  var doc = win.document;
+// default customization values
+var DEFAULTS = {
+  activeClass: 'autogrow-active',
+  areaClass: 'autogrow',
+  containerClass: 'autogrow-container',
+  mirrorClass: 'autogrow-mirror',
+  spanClass: 'autogrow-mirror-span'
+};
 
-  function init(options) {
-   
-    var containerClass = (options && options.containerClass) || 'autogrow-container',
-        container_arr,
-        mirrorClass = (options && options.mirrorClass) || 'autogrow-mirror',
-        spanClass = (options && options.spanClass) || 'autogrow-mirror-span',
-        activeClass = (options && options.activeClass) || 'autogrow-active',
-        areaClass = (options && options.areaClass) || 'autogrow',
-        i,
-        l,
-        createArea;
+// user defined options
+autogrow.options = {};
 
-    if (doc.querySelectorAll && doc.body.classList && doc.addEventListener) {
+function createArea(container) {
+  var area, span,
+  // container_html = '<div class="'+containerClass+'"></div>',
+  mirror = '<pre class="'+mirrorClass+'">' +
+                 '<span class="'+spanClass+'"></span>' +
+                 '<br>' +
+               '</pre>';
 
-      createArea = function(container) {
-        var mirror = '<pre class="' + mirrorClass + '">' +
-                       '<span class="' + spanClass + '"></span>' +
-                       '<br>' +
-                     '</pre>',
-            area,
-            span;
-        container.innerHTML += mirror;
-        area = container.querySelector('textarea');
-        span = container.querySelector('span');
-        area.classList.add(areaClass);        
-        doc.addEventListener('input', function (event) {
-          if (event.target.classList.contains('autogrow')) {
-            span.textContent = area.value;
-          }        
-        }, false);
-        span.textContent = area.value;
-        container.classList.add(activeClass);
-      };
+  // container.insertAdjacentHTML('beforebegin', container_html);
+  // return;
+  container.innerHTML += mirror;
 
-      container_arr = doc.querySelectorAll('.' + containerClass);
-      l = container_arr.length;
+  area = container.querySelector('textarea');
+  span = container.querySelector('span');
+  area.classList.add(areaClass);
+  span.textContent = area.value;
+  container.classList.add(activeClass);
+}
 
-      for (i = 0; i < l; i+=1) {
-        createArea(container_arr[i]);
-      }
- 
+// attach input event on document object
+function attachEventListener(root) {
+  root.addEventListener('input', function(event) {
+    var span, text, container;
+    var target = event.target;
+    if (target.classList.contains(areaClass)) {
+      container = target.parentNode;
+      // var area = container.querySelector('textarea');
+      span = container.querySelector('span');
+      text = target.value;
+
+      span.textContent = text;
     }
+  }, false);
+}
 
+// set options on autogrow object
+function setOptions(options) {
+  var key,
+      defaults = DEFAULTS;
+
+  for (key in options) {
+    if (defaults.hasOwnProperty(key)) {
+      autogrow.options[key] = options[key];
+    }
   }
- 
-  return { init: init };
- 
-}(this));
+
+  return autogrow.options;
+}
+
+autogrow.init = function (options) {
+  var container_arr, i, l, current,
+  defaults = DEFAULTS;
+
+  if (options !== undefined) {
+    setOptions(options);
+  }
+
+  containerClass = (options && options.containerClass) || defaults.containerClass;
+  mirrorClass = (options && options.mirrorClass) || defaults.mirrorClass;
+  spanClass = (options && options.spanClass) || defaults.spanClass;
+  activeClass = (options && options.activeClass) || defaults.activeClass;
+  areaClass = (options && options.areaClass) || defaults.areaClass;
+
+  if (!doc.querySelectorAll &&
+      !doc.body.classList &&
+      !doc.addEventListener) {
+        return;
+  }
+
+  // var areas = doc.querySelectorAll('[data-autogrow]');
+  // l=areas.length;
+
+  container_arr = doc.querySelectorAll('.' + containerClass);
+  l = container_arr.length;
+
+  for (i = 0; i < l; i+=1) {
+    current = container_arr[i];
+    // current = areas[i];
+    createArea(current);
+    attachEventListener(current);
+  }
+};
+
+// expose autogrow to global environment
+global.autogrow = autogrow;
+
+}(window));
