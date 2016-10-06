@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 <title>autogrow</title>
 <link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="autogrow.css">
@@ -19,7 +20,7 @@
 
 <label for="autogrow">One</label>
 <div class="autogrow-container">
-<textarea id="autogrow" rows="14" cols="20" placeholder="Type something…"></textarea>
+<textarea autofocus id="autogrow" rows="14" cols="20" placeholder="Type something…"></textarea>
 </div>
 <label for="autogrow2">Two</label>
 <div class="autogrow-container">
@@ -30,7 +31,7 @@
 
 <p>You can get the code from Github, by cloning the repository, like so:</p>
 
-<p><code>$ git clone git@github.com:carlrafting/autogrow.git</code></p>
+<pre><code>$ git clone git@github.com:carlrafting/autogrow.git</code></pre>
 
 <p>If you'd rather like to download a .zip, <a href="//github.com/carlrafting/autogrow/releases">check out the releases</a>.</p>
 
@@ -38,11 +39,11 @@
 
 <p>To use autogrow in you project, include the stylesheet and javascript file that comes with it.</p>
 
-<div>Add this line inside your <code>&lt;head&gt;</code></div>
-<p><code>&lt;link rel="stylesheet" href="path/to/autogrow.css"&gt;</code></p>
+<p>Add this line inside your <code>&lt;head&gt;</code></p>
+<pre><code>&lt;link rel="stylesheet" href="path/to/autogrow.css"&gt;</code></pre>
 
-<div>And this one before <code>&lt;/body&gt;</code></div>
-<p><code>&lt;script src="path/to/autogrow.js"&gt;&lt;/script&gt;</code></p>
+<p>And this one before <code>&lt;/body&gt;</code></p>
+<pre><code>&lt;script src="path/to/autogrow.js"&gt;&lt;/script&gt;</code></pre>
 
 <p>As an alternative you could just copy-and-paste the following code into your existing project files.</p>
 
