@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+NAME=autogrow
+INPUT=$PWD/$NAME.js
+OUTPUT=$PWD/$NAME.min.js
+
+if [[ -x /usr/local/bin/uglifyjs ]]; then
+  uglifyjs $INPUT -c -m -o $OUTPUT
+fi
