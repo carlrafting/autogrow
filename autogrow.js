@@ -25,14 +25,11 @@ autogrow.options = {};
 
 function createArea(container) {
   var area, span,
-  // container_html = '<div class="'+containerClass+'"></div>',
   mirror = '<pre class="'+mirrorClass+'">' +
                  '<span class="'+spanClass+'"></span>' +
                  '<br>' +
                '</pre>';
 
-  // container.insertAdjacentHTML('beforebegin', container_html);
-  // return;
   container.innerHTML += mirror;
 
   area = container.querySelector('textarea');
@@ -49,7 +46,6 @@ function attachEventListener(root) {
     var target = event.target;
     if (target.classList.contains(areaClass)) {
       container = target.parentNode;
-      // var area = container.querySelector('textarea');
       span = container.querySelector('span');
       text = target.value;
 
@@ -92,15 +88,11 @@ autogrow.init = function (options) {
         return;
   }
 
-  // var areas = doc.querySelectorAll('[data-autogrow]');
-  // l=areas.length;
-
   container_arr = doc.querySelectorAll('.' + containerClass);
   l = container_arr.length;
 
   for (i = 0; i < l; i+=1) {
     current = container_arr[i];
-    // current = areas[i];
     createArea(current);
     attachEventListener(current);
   }
