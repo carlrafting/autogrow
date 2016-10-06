@@ -2,6 +2,9 @@
     "env": {
         "browser": true
     },
+    "globals": {
+      "autogrow": true
+    },
     "extends": "eslint:recommended",
     "rules": {
         "accessor-pairs": "error",
@@ -74,7 +77,6 @@
         "max-lines": "error",
         "max-nested-callbacks": "error",
         "max-params": "error",
-        "max-statements": "error",
         "max-statements-per-line": "error",
         "multiline-ternary": "error",
         "new-cap": "error",
@@ -137,7 +139,6 @@
         "no-process-env": "error",
         "no-process-exit": "error",
         "no-proto": "error",
-        "no-prototype-builtins": "error",
         "no-restricted-globals": "error",
         "no-restricted-imports": "error",
         "no-restricted-modules": "error",
@@ -157,7 +158,6 @@
         "no-throw-literal": "error",
         "no-trailing-spaces": "off",
         "no-undef-init": "error",
-        "no-undefined": "error",
         "no-underscore-dangle": "error",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
@@ -182,7 +182,6 @@
         ],
         "object-property-newline": "error",
         "object-shorthand": "off",
-        "one-var": "error",
         "one-var-declaration-per-line": "error",
         "operator-assignment": [
             "error",
