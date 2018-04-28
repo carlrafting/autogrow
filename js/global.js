@@ -4,6 +4,8 @@
       t,
       i = 0;
 
+  autogrow('autogrow');
+
   function get(url, fn) {
     var r = new XMLHttpRequest();
     r.onreadystatechange = function () {
@@ -33,5 +35,4 @@
     t = txtareas[i];
     t.addEventListener('click', slct, false);
   }
-  autogrow.init();
 }());

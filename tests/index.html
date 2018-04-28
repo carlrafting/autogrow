@@ -10,13 +10,14 @@
 
   <style>
   .jasmine_html-reporter { font-size: 16px; line-height: 24px; }
-  .textareas { display: none; }
+  .autogrow-container,
+  textarea { display: none; }
   </style>
 
   <script src="lib/jasmine-3.1.0/jasmine.js"></script>
   <script src="lib/jasmine-3.1.0/jasmine-html.js"></script>
   <script src="lib/jasmine-3.1.0/boot.js"></script>
-  
+
   <!-- include source files here... -->
   <script src="../autogrow.js" charset="utf-8"></script>
 
@@ -25,14 +26,8 @@
 </head>
 
 <body>
-  <div class="textareas">
-    <div class="autogrow-container">
-       <textarea id="textarea-one"></textarea>
-    </div>
-
-    <div class="autogrow-container">
-       <textarea id="textarea-two"></textarea>
-    </div>
-  </div>
+   <textarea class="hello"></textarea>
+   <textarea id="textarea-one"></textarea>
+   <textarea id="textarea-two"></textarea>
 </body>
 </html>

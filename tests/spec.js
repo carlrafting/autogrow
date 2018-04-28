@@ -1,44 +1,31 @@
+// here are some shitty tests
 describe("autogrow", function () {
-  var a, textareas, mirrors;
-
-  beforeEach(function () {
-    a = autogrow;
-    a.init();
-    textareas = document.querySelectorAll('textarea');
-    mirrors = document.querySelectorAll('pre');
+  it("provides a shortcut method", function () {
+    expect(window.a).toBeDefined();
   });
 
-  afterEach(function (){
-    textareas = null, mirrors = null;
+  it("does nothing if no element was found", function () {
+    var dontExist = a('foo');
+    expect(dontExist).toBeUndefined();
   });
 
-  describe("init", function () {
-    it("should set options if given", function () {
-      var opts = {
-        activeClass: 'fooBar'
-      };
-      a.init(opts);
-      var expected = a.options
-      expect(expected).toEqual(opts);
-    });
-    it("should use defaults if no options are given", function () {
-      var DEFAULTS = {
-        activeClass: 'autogrow-active',
-        areaClass: 'autogrow',
-        containerClass: 'autogrow-container',
-        mirrorClass: 'autogrow-mirror',
-        spanClass: 'autogrow-mirror-span'
-      };
-      a.init();
+  it("returns the target element if it was found", function () {
+    expect(a("textarea-one")).toBeDefined();
+  });
 
-      var container = document.querySelector('.'+DEFAULTS.containerClass);
-      var span = document.querySelector('.'+DEFAULTS.spanClass);
+  it("works if class selector is given", function () {
+    var selector = '.hello';
+    var element = document.querySelector(selector);
+    expect(a(selector)).toBe(element);
+  });
 
-      expect(textareas[0].classList.contains(DEFAULTS.areaClass)).toBe(true);
-      expect(container.classList.contains(DEFAULTS.containerClass)).toBe(true);
-      expect(container.classList.contains(DEFAULTS.activeClass)).toBe(true);
-      expect(mirrors[0].classList.contains(DEFAULTS.mirrorClass)).toBe(true);
-      expect(span.classList.contains(DEFAULTS.spanClass)).toBe(true);
-    });
+  it("works if id selector is given", function () {
+    var selector = '#textarea-two';
+    var element = document.querySelector(selector);
+    expect(a(selector)).toBe(element);
+  });
+
+  it("should fail silently if no element is given", function () {
+    expect(a(null)).toBeUndefined();
   });
 });

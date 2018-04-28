@@ -7,98 +7,89 @@
  */
 (function (global) {
 
-var containerClass, mirrorClass, spanClass, activeClass, areaClass,
-    autogrow = {},
-    doc = global.document;
+"use strict";
 
-// default customization values
-var DEFAULTS = {
-  activeClass: 'autogrow-active',
-  areaClass: 'autogrow',
-  containerClass: 'autogrow-container',
-  mirrorClass: 'autogrow-mirror',
-  spanClass: 'autogrow-mirror-span'
-};
+var window = global.window;
+var document = window.document;
 
-// user defined options
-autogrow.options = {};
+function autogrow(target, options) {
+  // set options argument to empty object if undefined to prevent error
+  if (!options) {
+    options = {};
+  }
 
-function createArea(container) {
-  var area, span,
-  mirror = '<pre class="'+mirrorClass+'">' +
-                 '<span class="'+spanClass+'"></span>' +
-                 '<br>' +
-               '</pre>';
+  if (!target || target === '') {
+    return;
+  }
 
-  container.innerHTML += mirror;
+  var element;
+  var char = target.charAt(0);
 
-  area = container.querySelector('textarea');
-  span = container.querySelector('span');
-  area.classList.add(areaClass);
-  span.textContent = area.value;
+  // get target element from DOM
+  if (char === '#' || char === '.') {
+    element = document.querySelector(target);
+  } else {
+    element = document.getElementById(target);
+  }
+  // exit if no element was found
+  if (!element) return;
+
+  // set classnames for elements
+  var areaClass = options.areaClass || 'autogrow';
+  var containerClass = options.containerClass || 'autogrow-container';
+  var activeClass = options.activeClass || 'autogrow-active';
+  var mirrorClass = options.mirrorClass || 'autogrow-mirror';
+  var spanClass = options.spanClass || 'autogrow-mirror-span';
+
+  // create a bunch of elements
+  var frag = document.createDocumentFragment();
+  var container = document.createElement('div');
+  var pre = document.createElement('pre');
+  var span = document.createElement('span');
+  var br = document.createElement('br');
+
+  // assign classes to elements
+  element.classList.add(areaClass);
+  container.classList.add(containerClass);
   container.classList.add(activeClass);
-}
+  pre.classList.add(mirrorClass);
+  span.classList.add(spanClass);
 
-// attach input event on document object
-function attachEventListener(root) {
-  root.addEventListener('input', function(event) {
-    var span, text, container;
-    var target = event.target;
-    if (target.classList.contains(areaClass)) {
-      container = target.parentNode;
-      span = container.querySelector('span');
-      text = target.value;
+  // get text from element
+  span.textContent = element.value;
 
+  // html building... i guess
+  pre.appendChild(span);
+  pre.appendChild(br);
+  //container.appendChild(element);
+  container.appendChild(pre);
+
+  // create event listener for container
+  container.addEventListener('input', function (event) {
+    var t = event.target;
+    if (t.classList.contains(areaClass)) {
+      var text = t.value;
       span.textContent = text;
     }
-  }, false);
-}
+  });
 
-// set options on autogrow object
-function setOptions(options) {
-  var key,
-      defaults = DEFAULTS;
+  // append container node to fragment
+  frag.appendChild(container);
 
-  for (key in options) {
-    if (defaults.hasOwnProperty(key)) {
-      autogrow.options[key] = options[key];
+  // render fragment to DOM
+  window.requestAnimationFrame(function () {
+    element.parentNode.insertBefore(frag, element);
+    container.appendChild(element);
+    if (element.autofocus) {
+      element.focus();
     }
-  }
+  });
 
-  return autogrow.options;
+  return element;
 }
-
-autogrow.init = function (options) {
-  var container_arr, i, l, current,
-  defaults = DEFAULTS;
-
-  if (options !== undefined) {
-    setOptions(options);
-  }
-
-  containerClass = (options && options.containerClass) || defaults.containerClass;
-  mirrorClass = (options && options.mirrorClass) || defaults.mirrorClass;
-  spanClass = (options && options.spanClass) || defaults.spanClass;
-  activeClass = (options && options.activeClass) || defaults.activeClass;
-  areaClass = (options && options.areaClass) || defaults.areaClass;
-
-  if (!doc.querySelectorAll &&
-      !doc.body.classList &&
-      !doc.addEventListener) {
-        return;
-  }
-
-  container_arr = doc.querySelectorAll('.' + containerClass);
-  l = container_arr.length;
-
-  for (i = 0; i < l; i+=1) {
-    current = container_arr[i];
-    createArea(current);
-    attachEventListener(current);
-  }
-};
 
 // expose autogrow to global environment
 global.autogrow = autogrow;
+global.a = autogrow;
 
 }(window));
