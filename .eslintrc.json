@@ -14,10 +14,6 @@
         "arrow-parens": "error",
         "arrow-spacing": "error",
         "block-scoped-var": "error",
-        "block-spacing": "error",
-        "brace-style": "error",
-        "callback-return": "error",
-        "camelcase": "off",
         "class-methods-use-this": "error",
         "comma-dangle": "error",
         "comma-spacing": [
@@ -43,7 +39,6 @@
         "dot-location": "error",
         "dot-notation": "error",
         "eol-last": "off",
-        "eqeqeq": "error",
         "func-call-spacing": "error",
         "func-names": [
             "error",
@@ -188,22 +183,10 @@
             "always"
         ],
         "operator-linebreak": "error",
-        "padded-blocks": "off",
-        "prefer-arrow-callback": "off",
-        "prefer-const": "error",
-        "prefer-numeric-literals": "error",
-        "prefer-reflect": "error",
-        "prefer-rest-params": "error",
-        "prefer-spread": "error",
-        "prefer-template": "off",
-        "quote-props": "off",
         "quotes": [
             "error",
             "single"
         ],
-        "radix": "error",
-        "require-jsdoc": "off",
-        "rest-spread-spacing": "error",
         "semi": "error",
         "semi-spacing": [
             "error",
@@ -212,33 +195,17 @@
                 "before": false
             }
         ],
-        "sort-imports": "error",
-        "sort-keys": "error",
-        "sort-vars": "off",
         "space-before-blocks": "error",
-        "space-before-function-paren": "off",
         "space-in-parens": [
             "error",
             "never"
         ],
-        "space-infix-ops": "off",
-        "space-unary-ops": "error",
-        "spaced-comment": "error",
-        "strict": [
-            "error",
-            "never"
-        ],
-        "symbol-description": "error",
-        "template-curly-spacing": "error",
         "unicode-bom": [
             "error",
             "never"
         ],
         "valid-jsdoc": "error",
         "vars-on-top": "error",
-        "wrap-iife": "error",
-        "wrap-regex": "error",
-        "yield-star-spacing": "error",
-        "yoda": "error"
+        "wrap-iife": "error"
     }
 }
