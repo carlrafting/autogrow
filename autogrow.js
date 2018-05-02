@@ -40,7 +40,7 @@
     // create a bunch of elements
     var frag = document.createDocumentFragment();
     var container = document.createElement('div');
-    var pre = document.createElement('pre');
+    var mirror = document.createElement('pre');
     var span = document.createElement('span');
     var br = document.createElement('br');
 
@@ -52,16 +52,16 @@
     element.classList.add(areaClass);
     container.classList.add(containerClass);
     container.classList.add(activeClass);
-    pre.classList.add(mirrorClass);
+    mirror.classList.add(mirrorClass);
     span.classList.add(spanClass);
 
     // get text from element
     span.textContent = element.value;
 
     // html building... i guess
-    pre.appendChild(span);
-    pre.appendChild(br);
-    container.appendChild(pre);
+    mirror.appendChild(span);
+    mirror.appendChild(br);
+    container.appendChild(mirror);
 
     // create event listener for container
     container.addEventListener('input', function inputEvent(event) {
@@ -86,7 +86,7 @@
 
     return {
       container: container,
-      mirror: pre,
+      mirror: mirror,
       span: span,
       target: element,
       selector: target
