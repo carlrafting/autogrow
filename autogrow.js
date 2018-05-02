@@ -31,8 +31,8 @@
     if (!element) return;
 
     // set classnames for elements
-    var areaClass = options.areaClass || 'autogrow';
-    var containerClass = options.containerClass || 'autogrow-container';
+    var areaClass = options.areaClass || 'autogrow-area';
+    var containerClass = options.containerClass || 'autogrow';
     var activeClass = options.activeClass || 'autogrow-active';
     var mirrorClass = options.mirrorClass || 'autogrow-mirror';
     var spanClass = options.spanClass || 'autogrow-mirror-span';

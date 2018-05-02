@@ -1,36 +1,34 @@
-.autogrow,
+.autogrow-area,
 .autogrow-mirror {
-background: transparent;
-font: inherit;
-white-space: pre-wrap;
-word-wrap: break-word;
-border: 0;
-padding: 1em;
-margin: 0;
+  background: transparent;
+  font: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 0;
+  padding: 1em;
+  margin: 0;
 }
-.autogrow {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-width: 100%;
+.autogrow-area {
+  box-sizing: border-box;
+  width: 100%;
 }
 .autogrow-mirror { display: none; }
 
 /* ACTIVE STYLES */
-.autogrow-container.autogrow-active {
-position: relative;
-border: 1px solid #ccc;
-background: #fff;
+.autogrow.autogrow-active {
+  position: relative;
+  border: 1px solid #ccc;
+  background: #fff;
 }
-.autogrow-active .autogrow {
-overflow: hidden;
-position: absolute;
-top: 0;
-left: 0;
-height: 100%;
-resize: none;
+.autogrow-active .autogrow-area {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  resize: none;
 }
 .autogrow-active .autogrow-mirror {
-display: block;
-visibility: hidden;
+  display: block;
+  visibility: hidden;
 }
