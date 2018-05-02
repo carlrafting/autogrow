@@ -43,7 +43,11 @@
     var pre = document.createElement('pre');
     var span = document.createElement('span');
     var br = document.createElement('br');
-  
+
+    // exit if element already has areaClass applied
+    // don't want to execute the code twice
+    if (element.classList.contains(areaClass)) return;
+
     // assign classes to elements
     element.classList.add(areaClass);
     container.classList.add(containerClass);
