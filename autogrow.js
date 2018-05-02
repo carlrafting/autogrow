@@ -61,7 +61,6 @@
     // html building... i guess
     pre.appendChild(span);
     pre.appendChild(br);
-    //container.appendChild(element);
     container.appendChild(pre);
 
     // create event listener for container
