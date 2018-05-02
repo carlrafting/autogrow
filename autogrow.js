@@ -88,7 +88,24 @@
   
     return element;
   }
-  
+
+  // is this a good idea for backwards compatibility?
+  autogrow.all = function () {
+    var elements = document.getElementsByTagName('textarea');
+    var length = elements.length;
+    var rand = Math.floor(Math.random() * 10000000);
+    var element;
+
+    for (var i = 0; i < length; i++) {
+      element = elements[i];
+      if (!element.id || element.id === '') {
+        element.id = 'autogrow-'+rand;
+      }
+      autogrow(element.id);
+    }
+  };
+  autogrow.init = autogrow.all;
+
   // expose autogrow to global environment
   global.autogrow = autogrow;
   global.a = autogrow;
