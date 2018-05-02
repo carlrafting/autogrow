@@ -83,8 +83,6 @@
         element.focus();
       }
     });
-  
-    return element;
 
     return {
       container: container,
