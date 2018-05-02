@@ -64,13 +64,11 @@
     container.appendChild(pre);
 
     // create event listener for container
-    container.addEventListener('input', function (event) {
+    container.addEventListener('input', function inputEvent(event) {
       var t = event.target;
+      var text = t.value;
       if (t.classList.contains(areaClass)) {
-        window.requestAnimationFrame(function () {
-          var text = t.value;
-          span.textContent = text;
-        });
+        span.textContent = text;
       }
     });
 
