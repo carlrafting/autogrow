@@ -85,6 +85,14 @@
     });
   
     return element;
+
+    return {
+      container: container,
+      mirror: pre,
+      span: span,
+      target: element,
+      selector: target
+    };
   }
 
   // is this a good idea for backwards compatibility?
