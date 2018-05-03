@@ -62,11 +62,11 @@ document.body.appendChild(ret.container);
 
 ```js
 {
-  container: container,
-  mirror: mirror,
-  span: span,
-  target: target,
-  element: element
+  container: HTMLDivElement,
+  mirror: HTMLPreElement,
+  span: HTMLSpanElement,
+  target: HTMLTextareaElement|String,
+  element: HTMLTextareaElement 
 }
 ```
 
@@ -102,7 +102,7 @@ None
 
 #### Description
 
-Takes no arguments. Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
+Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
 
 ### `autogrow.init()`
 
