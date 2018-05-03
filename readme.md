@@ -44,8 +44,8 @@ document.body.appendChild(ret.container);
 
 #### Arguments
 
-* `target`, `String`|`HTMLTextAreaElement`, element in DOM to get or element to transform. If `target` is `HTMLTextAreaElement`, it doesn't have to exist in DOM. 
-* `options`, `Object`, accepts following properties:
+* `target`, type: `String`|`HTMLTextAreaElement`, element in DOM to get or element to transform. If `target` is `HTMLTextAreaElement`, it's not necessary for element to already exist in DOM. 
+* `options`, type: `Object`, accepts following properties:
 ```js
 {
     areaClass: String // class to apply to textarea
@@ -70,7 +70,7 @@ document.body.appendChild(ret.container);
 }
 ```
 
-#### HTML
+#### Description
 
 Here's the html that's generated when `autogrow('autogrow')` is called.
 
@@ -91,6 +91,16 @@ After:
 ```
 
 ### `autogrow.all()`
+
+#### Arguments
+
+None
+
+#### Return value
+
+None
+
+#### Description
 
 Takes no arguments. Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
 
