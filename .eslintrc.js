@@ -1,6 +1,7 @@
 module.exports = {
   "env": {
-    "browser": true
+    "browser": true,
+    "jasmine": true
   },
   "globals": {
     "autogrow": true
