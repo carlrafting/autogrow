@@ -33,7 +33,6 @@ module.exports = {
     }],
     "space-before-blocks": "error",
     "radix": "warn",
-    "object-shorthand": "error",
     "object-curly-spacing": [
         "error",
         "always"
