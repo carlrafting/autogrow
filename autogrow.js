@@ -14,19 +14,30 @@
       options = {};
     }
 
-    if (!target || target === '') {
+    if (!target && target === '') {
       return;
     }
 
     var element;
-    var char = target.charAt(0);
-
-    // get target element from DOM
-    if (char === '#' || char === '.') {
-      element = document.querySelector(target);
-    } else {
-      element = document.getElementById(target);
+    var char;
+    
+    if (target instanceof HTMLTextAreaElement) {
+      element = target;
     }
+    if (typeof target === 'string') {
+      char = target.charAt(0);
+      
+      // get target element from DOM
+      if (char === '#' || char === '.') {
+        element = document.querySelector(target);
+      } else {
+        element = document.getElementById(target);
+      }
+      
+      // set char to null, wont be used anymore
+      char = null;
+    }
+
     // exit if no element was found
     if (!element) return;
 
@@ -75,21 +86,23 @@
     // append container node to fragment
     frag.appendChild(container);
     
-    // render fragment to DOM
-    window.requestAnimationFrame(function () {
+    // render fragment to DOM if element has parentNode
+    if (element.parentNode) {
       element.parentNode.insertBefore(frag, element);
-      container.appendChild(element);
-      if (element.autofocus) {
-        element.focus();
-      }
-    });
+    }
+    
+    container.appendChild(element);
+    
+    if (element.autofocus) {
+      element.focus();
+    }
 
     return {
       container: container,
       mirror: mirror,
       span: span,
-      target: element,
-      selector: target
+      target: target,
+      element: element
     };
   }
 
