@@ -1,5 +1,9 @@
 /*
- * autogrow.js
+ * autogrow
+ * https://carlrafting.com/autogrow
+ *
+ * Source Code
+ * github.com/carlrafting/autogrow
  */
 (function (global) {
 

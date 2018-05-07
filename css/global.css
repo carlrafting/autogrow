@@ -27,11 +27,16 @@ html {
   overflow-y: scroll;
 }
 body {
-  font: 100%/1.5 "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font: 100%/1.5 "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   color: #444;
   background: #fff;
   -webkit-font-smoothing: antialiased;
-  /* text-rendering: optimizeLegibility; */
+   text-rendering: optimizeLegibility;
+}
+@media (min-width: 40em) {
+  body {
+    font-size: 125%;
+  }
 }
 p,
 pre,
@@ -47,7 +52,8 @@ pre {
   word-wrap: break-word;
 }
 a,
-a:link {
+a:link,
+a:visited {
   color: #f85210;
   text-decoration: none;
 }
@@ -62,21 +68,32 @@ code,
 textarea {
   color: chocolate;
   font-family: Menlo, Monaco, 'Courier New', monospace;
-  font-size: 90%;
+  font-size: inherit;
 }
 h1 {
-  font-size: 3em;
+  font-size: 1.85em;
+  line-height: 1.25;
   font-weight: bold;
-  color: #f85210;
+  color: #000;
+  margin-bottom: .5em;
 }
 h2 {
   font-weight: bold;
-  font-size: 1.5em;
-  line-height: 1.2;
-  margin-bottom: .66666666666667em;
+  font-size: 1.25em;
+  line-height: 1.125;
+  margin-bottom: 20px;
 }
+@media (min-width: 40em) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+}
+
 h3 { font-weight: bold; }
-label { display: block; }
+label { display: block; margin-bottom: .5em; }
 label[for] { cursor: pointer; }
 label[for]:after { content: ':'; }
 /* Default textarea styling */
@@ -86,22 +103,13 @@ textarea {
   height: 10em;
   margin: 0 0 1.5em;
   padding: 1.5em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: middle;
   resize: vertical;
   border: 1px solid #aaa;
-  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .1);
-  -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .1);
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .1);
-  -webkit-font-smoothing: antialiased;
 }
 textarea[readonly] { cursor: pointer; }
-small {
-  font-size: .875em;
-  color: #aaa;
-}
 
 header,
 [role="main"],
@@ -110,36 +118,165 @@ footer {
   margin-bottom: 1em
 }
 
+small {
+  font-size: .85em;
+}
+
 header {
-  background: #f85210;
+  padding: 1em 0 0;
   text-align: center;
 }
 
-header * {
-  color: #fff !important;
+
+@keyframes colorSwitch {
+  0% {
+    color: aqua;
+  }
+  8% {
+    color: red;
+  }
+  16% {
+    color: lime;
+  }
+  24% {
+    color: fuchsia;
+  }
+  32% {
+    color: maroon;
+  }
+  40% {
+    color: magenta;
+  }
+  48% {
+    color: salmon;
+  }
+  56% {
+    color: crimson;
+  }
+  64% {
+    color: deeppink;
+  }
+  72% {
+    color: firebrick;
+  }
+  to {
+    color: cyan;
+  }
 }
 
-@media (min-width: 40em) {
+header .name {
+  font-size: 3em;
+  margin: 0;
+  font-weight: bold;
+  animation: colorSwitch 10s ease-in-out 0s infinite;
+}
 
+header p {
+  font-size: 1.25em;
+  color: #888;
+  margin-bottom: .5em;
+}
+
+[role="main"] {
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 /* @end default */
 
 /* @group page components */
 
+.demo {
+  padding: 4em 2em;
+  background: #eee;
+  position: relative;
+}
+
+.demo .container {
+  position: relative;
+}
+
+/*.demo::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8em;
+  background: linear-gradient(#bbb, #eee);
+}*/
+
+.demo label {
+  text-align: center;
+  text-shadow: #fff 0 1px 0;
+  /*font-weight: bold;*/
+}
+
+.demo .autogrow.autogrow-active {
+  border: 0;
+  box-shadow: 0 8px 20px #ccc;
+  border-radius: 4px;
+  margin-bottom: 1.5em;
+}
+
+.demo .autogrow-active .autogrow-area {
+  outline: none;
+  box-shadow: none;
+}
+
+/*.code {
+  margin-top: 4em;
+  margin-bottom: 0;
+}*/
+
+.code pre {
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-left: 4px solid dodgerblue;
+}
+
+.code code {
+  color: #444;
+}
+
+.string {
+  color: chocolate;
+}
+
+.func {
+  color: dodgerblue;
+}
+
+.comment {
+  color: #888;
+}
+
+.files {
+  border: 1px solid #ddd;
+  border-bottom: 0;
+  list-style: none;
+}
+
+.files li {
+  border-bottom: 1px solid #ddd;
+}
+
+.files a {
+  display: block;
+  padding: .2em .25em;
+}
+
+.fsize {
+  color: #888;
+  float: right;
+}
+
 .container {
   width: 40em;
   max-width: 100%;
   margin: auto;
 }
-
-.tagline {
-  color: #aaa;
-  font-size: 1.5em;
-  /* border-bottom: 1px solid #eaeaea; */
-  /* padding-bottom: .95833333333333em; */
-}
-
-.autogrow-container { margin-bottom: 1.5em; }
 
 /* @end page components */
