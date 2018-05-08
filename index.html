@@ -11,8 +11,8 @@
 
 <header role="banner">
 <div class="container">
-<h1 class="name">autogrow</h1>
-<p>Makes textarea elements more elegent &amp; less frustrating</p>
+<h1><img src="logo.png" alt="autogrow"></h1>
+<p>autogrow makes textarea elements more elegent &amp; less frustrating, by making them <em>autogrow</em>.</p>
 </div>
 </header>
 
@@ -24,8 +24,7 @@
   id="autogrow"
   rows="14"
   cols="20"
-  placeholder="Type something…"
-  class="header-autogrow-area">
+  placeholder="Type something…">
 </textarea>
 </div>
 </div>
@@ -33,21 +32,18 @@
 <div role="main">
 
 <div class="container">
-
 <h2>Quick Start</h2>
-
-<p>Here's an example of how create an expanding textarea like the demo above.</p> 
+<p>Here's an example of how to create an expanding textarea like the demo above.</p>
 
 <div class="code">
-<pre><code><span class="func">autogrow(</span><span class="string">'autogrow'</span><span class="func">)</span>; <span class="comment">// get textarea element with id="autogrow"</span></code></pre>
+<pre><code>&lt;<span class="html-el">textarea</span> <span class="html-attr">id=</span><span class="html-string">&quot;autogrow&quot;</span>&gt;&lt;/<span class="html-el">textarea</span>&gt;</code></pre>
+<pre><code><span class="js-func">autogrow(</span><span class="js-string">'autogrow'</span><span class="js-func">)</span>; <span class="js-comment">// get textarea element with id="autogrow"</span></code></pre>
 </div>
 
 <h2>Documentation</h2>
-
-<p>You can check out documentation on how to use autogrow on <a href="#github">GitHub</a>.</p>
+<p>You can check out documentation on how to use autogrow, and what autogrow is on <a href="https://github.com/carlrafting/autogrow#autogrow">GitHub</a>.</p>
 
 <h2>Install</h2>
-
 <p>Add autogrow to your project by either cloning the repository, or <a href="https://github.com/carlrafting/autogrow/releases/latest">download the latest release as a ZIP file</a> from GitHub.</p>
 
 <pre><code>git clone https://github.com/carlrafting/autogrow.git</code></pre>
@@ -66,19 +62,6 @@
 <li><a download href="autogrow.css">autogrow.css <span class="fsize">597 bytes</span></a></li>
 </ul>
 
-
-<!--<h3><label for="css">CSS</label></h3>
-
-<textarea id="css" readonly rows="24" cols="80">
-Loading...
-</textarea>
-
-<h3><label for="js">JS</label></h3>
-
-<textarea id="js" readonly rows="24" cols="80">
-Loading...
-</textarea>-->
-
 </div>
 
 </div>
@@ -90,7 +73,11 @@ Loading...
 </footer>
 
 <script src="autogrow.min.js"></script>
-<script src="js/global.js"></script>
+<script>
+(function () {
+  autogrow('autogrow');
+}());
+</script>
 
 </body>
 </html>
