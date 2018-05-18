@@ -1,4 +1,6 @@
-# ![autogrow](logo.png)
+<div style="text-align:center">
+![autogrow](logo.png)
+</div>
 
 ## What is autogrow?
 
@@ -8,28 +10,37 @@ It does this by expanding the height of the `textarea`, depending on the amount 
 
 You can read more in the article [Expanding Text Areas Made Elegant](http://www.alistapart.com/articles/expanding-text-areas-made-elegant/) by _Neil Jenkins_, where some of the code is adapted from.
 
+## New in Version 2
+
+Here's an overview of noteworthy changes in version 2.
+
+* Accepts `HTMLTextAreaElement` as `target` argument to `autogrow()`. Doesn't need to be attached to the DOM.
+* Creates DOM Elements with `document.createElement()` instead of setting string values on `Element.innerHTML`
+* It's now possible to use `autogrow()` for targeting individual elements.
+* `autogrow.init()` is now alias for `autogrow.all()`. Makes it possible to upgrade from previous versions without breaking.
+* Makes use of a `DocumentFragment` for better performance.
+
 ## How to Use autogrow
 
 Using autogrow is simple. Simply call `autogrow()` by providing the element to select as the first argument.
 
 ```js
 // get element by id
-autogrow('textarea')
+autogrow('textarea');
 
 // get element with id selector
-autogrow('#textarea')
+autogrow('#textarea');
 
 // get element with class selector
-autogrow('.textarea')
+autogrow('.textarea');
 
 // get element by id and provide custom styling options
 autogrow('textarea', {
   areaClass: 'my-area-class'
   containerClass: 'my-container-class'
-  activeClass: 'my-active-class'
   mirrorClass: 'my-mirror-class'
   spanClass: 'my-span-class'
-})
+});
 
 // create textarea and run it through autogrow
 var textarea = document.createElement('textarea');
@@ -122,13 +133,3 @@ $ git clone https://github.com/carlrafting/autogrow.git
 ### Download ZIP file
 
 Download the [latest release](https://github.com/carlrafting/autogrow/releases/latest) as a ZIP file.
-
-## New in Version 2
-
-Here's an overview of noteworthy changes in version 2.
-
-* Accepts `HTMLTextAreaElement` as `target` argument to `autogrow()`. May or may not exist in DOM.
-* Creates DOM Elements with `document.createElement()` instead of setting string values on `Element.innerHTML`
-* It's now possible to use `autogrow()` for targeting individual elements.
-* `autogrow.init()` is now alias for `autogrow.all()`. Makes it possible to upgrade from previous versions without breaking.
-* Makes use of a `DocumentFragment` for better performance.
