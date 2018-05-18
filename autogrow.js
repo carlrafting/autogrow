@@ -2,15 +2,17 @@
  * autogrow
  * https://carlrafting.com/autogrow
  *
- * Source Code
- * github.com/carlrafting/autogrow
+ * GitHub Repository
+ * https://github.com/carlrafting/autogrow
  */
-(function (global) {
+(function (global, window, document) {
 
   'use strict';
 
-  var window = global.window;
-  var document = window.document;
+  // exit if browser doesn't support following features
+  if (!document.querySelector
+  && !document.addEventListener
+  && !document.body.classList) return;
 
   function autogrow(target, options) {
     // set options argument to empty object if undefined to prevent error
@@ -129,4 +131,4 @@
   global.autogrow = autogrow;
   global.a = autogrow;
 
-}(window));
+}(this, this.window, this.document));
