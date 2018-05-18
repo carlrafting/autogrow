@@ -196,18 +196,8 @@ header p {
 }
 .demo .container {
   position: relative;
+  text-align: center;
 }
-
-/*.demo::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 8em;
-  background: linear-gradient(#bbb, #eee);
-}*/
 .demo label {
   text-align: center;
   text-shadow: #fff 0 1px 0;
