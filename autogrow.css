@@ -1,3 +1,8 @@
+.autogrow {
+  position: relative;
+  border: 1px solid #ccc;
+  background: #fff;
+}
 .autogrow-area,
 .autogrow-mirror {
   background: transparent;
@@ -11,16 +16,6 @@
 .autogrow-area {
   box-sizing: border-box;
   width: 100%;
-}
-.autogrow-mirror { display: none; }
-
-/* ACTIVE STYLES */
-.autogrow.autogrow-active {
-  position: relative;
-  border: 1px solid #ccc;
-  background: #fff;
-}
-.autogrow-active .autogrow-area {
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -28,7 +23,7 @@
   height: 100%;
   resize: none;
 }
-.autogrow-active .autogrow-mirror {
+.autogrow-mirror {
   display: block;
   visibility: hidden;
 }

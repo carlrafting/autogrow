@@ -8,3 +8,4 @@
 - [] NPM package / UMD support for all the cool kids (?)
 - [] Make file sizes on website dynamic, instead of hardcoded
 - [] Logo in SVG
+- [x] Simplify CSS Selectors

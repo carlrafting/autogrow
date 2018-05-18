@@ -24,20 +24,20 @@
 
     var element;
     var char;
-    
+
     if (target instanceof HTMLTextAreaElement) {
       element = target;
     }
     if (typeof target === 'string') {
       char = target.charAt(0);
-      
+
       // get target element from DOM
       if (char === '#' || char === '.') {
         element = document.querySelector(target);
       } else {
         element = document.getElementById(target);
       }
-      
+
       // set char to null, wont be used anymore
       char = null;
     }
@@ -48,7 +48,6 @@
     // set classnames for elements
     var areaClass = options.areaClass || 'autogrow-area';
     var containerClass = options.containerClass || 'autogrow';
-    var activeClass = options.activeClass || 'autogrow-active';
     var mirrorClass = options.mirrorClass || 'autogrow-mirror';
     var spanClass = options.spanClass || 'autogrow-mirror-span';
 
@@ -66,7 +65,6 @@
     // assign classes to elements
     element.classList.add(areaClass);
     container.classList.add(containerClass);
-    container.classList.add(activeClass);
     mirror.classList.add(mirrorClass);
     span.classList.add(spanClass);
 
@@ -89,14 +87,14 @@
 
     // append container node to fragment
     frag.appendChild(container);
-    
+
     // render fragment to DOM if element has parentNode
     if (element.parentNode) {
       element.parentNode.insertBefore(frag, element);
     }
-    
+
     container.appendChild(element);
-    
+
     if (element.autofocus) {
       element.focus();
     }

@@ -50,7 +50,6 @@ document.body.appendChild(ret.container);
 {
     areaClass: String // class to apply to textarea
     containerClass: String // class for autogrow container
-    activeClass: String // class for when autogrow is active. applies to container
     mirrorClass: String // class for mirror element
     spanClass: String // class for span element
 }
@@ -81,12 +80,12 @@ Before:
 
 After:
 ```html
-<div class="autogrow-container autogrow-active">
+<div class="autogrow">
   <pre class="autogrow-mirror">
     <span class="autogrow-mirror-span"></span>
     <br>
   </pre>
-  <textarea id="autogrow" class="autogrow"></textarea>
+  <textarea id="autogrow" class="autogrow-area"></textarea>
 </div>
 ```
 
