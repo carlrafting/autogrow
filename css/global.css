@@ -239,22 +239,6 @@ header p {
 .js-comment {
   color: #888;
 }
-.files {
-  border: 1px solid #ddd;
-  border-bottom: 0;
-  list-style: none;
-}
-.files li {
-  border-bottom: 1px solid #ddd;
-}
-.files a {
-  display: block;
-  padding: .2em .25em;
-}
-.fsize {
-  color: #888;
-  float: right;
-}
 .container {
   width: 40em;
   max-width: 100%;
