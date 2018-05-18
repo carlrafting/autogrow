@@ -3,6 +3,7 @@
   border: 1px solid #ccc;
   background: #fff;
 }
+
 .autogrow-area,
 .autogrow-mirror {
   background: transparent;
@@ -13,6 +14,7 @@
   padding: 1em;
   margin: 0;
 }
+
 .autogrow-area {
   box-sizing: border-box;
   width: 100%;
@@ -23,6 +25,7 @@
   height: 100%;
   resize: none;
 }
+
 .autogrow-mirror {
   display: block;
   visibility: hidden;
