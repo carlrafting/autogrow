@@ -4,9 +4,15 @@ describe("autogrow", function () {
     expect(window.a).toBeDefined();
   });
 
-  it("does nothing if no element was found", function () {
+  it("returns undefined if no element was found", function () {
     var dontExist = a('foo');
     expect(dontExist).toBeUndefined();
+  });
+
+  it("should return undefined if no element is given", function () {
+    expect(a(null)).toBeUndefined();
+    expect(a('')).toBeUndefined();
+    expect(a()).toBeUndefined();
   });
 
   it("returns the target element if it was found", function () {
@@ -38,12 +44,6 @@ describe("autogrow", function () {
     }).element.className).toEqual(className)
   });
 
-  it("should fail silently if no element is given", function () {
-    expect(a(null)).toBeUndefined();
-    expect(a('')).toBeUndefined();
-    expect(a()).toBeUndefined();
-  });
-  
   it("should accept HTMLTextAreaElement as target argument", function () {
     var textarea = document.createElement('textarea');
     textarea.id = "foobar";
