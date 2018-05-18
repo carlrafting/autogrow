@@ -7,3 +7,5 @@
 - [ ] Make file sizes on website dynamic, instead of hardcoded
 - [ ] Logo in SVG
 - [x] Simplify CSS Selectors
+- [ ] Detect feature support in script
+- [ ] Specify supported browsers
