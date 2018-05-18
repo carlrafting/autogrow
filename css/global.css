@@ -97,7 +97,9 @@ label[for] { cursor: pointer; }
 label[for]:after { content: ':'; }
 /* Default textarea styling */
 textarea {
+  font: inherit;
   vertical-align: middle;
+  padding: 1em;
 }
 em { font-style: italic; }
 img { max-width: 100%; vertical-align: middle; }
@@ -211,15 +213,14 @@ header p {
   text-shadow: #fff 0 1px 0;
   /*font-weight: bold;*/
 }
-.demo .autogrow.autogrow-active {
+.demo .autogrow {
   border: 0;
   box-shadow: 0 8px 20px #ccc;
   border-radius: 4px;
   margin-bottom: 1.5em;
 }
-.demo .autogrow-active .autogrow-area {
+.demo .autogrow-area {
   outline: none;
-  box-shadow: none;
 }
 /*.code {
   margin-top: 4em;
