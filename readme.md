@@ -48,9 +48,9 @@ autogrow('.textarea');
 
 // get element by id and provide custom styling options
 autogrow('textarea', {
-  areaClass: 'my-area-class'
-  containerClass: 'my-container-class'
-  mirrorClass: 'my-mirror-class'
+  areaClass: 'my-area-class',
+  containerClass: 'my-container-class',
+  mirrorClass: 'my-mirror-class',
   spanClass: 'my-span-class'
 });
 
@@ -71,9 +71,9 @@ document.body.appendChild(ret.container);
 * `options`, type: `Object`, accepts following properties:
 ```js
 {
-    areaClass: String // class to apply to textarea
-    containerClass: String // class for autogrow container
-    mirrorClass: String // class for mirror element
+    areaClass: String, // class to apply to textarea
+    containerClass: String, // class for autogrow container
+    mirrorClass: String, // class for mirror element
     spanClass: String // class for span element
 }
 ```
