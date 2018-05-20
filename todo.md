@@ -1,4 +1,4 @@
-# Things Todo on autogrow
+# Things ToDo on autogrow
 
 - [ ] Measure supposed performance benefits with `DocumentFragment` & `requestAnimationFrame`
 - [x] Accept element as target argument
@@ -9,3 +9,4 @@
 - [x] Simplify CSS Selectors
 - [x] Detect feature support in script
 - [ ] Specify supported browsers
+- [ ] autogrow.(all/init) should accept options object, for backwards compatibility
