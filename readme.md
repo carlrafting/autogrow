@@ -4,6 +4,16 @@
   </a>
 </div>
 
+## Table of Contents
+
+- [What is autogrow?](#what-is-autogrow)
+- [New in Version 2](#new-in-version-2)
+- [How to Use autogrow](#how-to-use-autogrow)
+- [API](#api)
+  - `autogrow(target, options)`
+  - `autogrow.all()`
+  - `autogrow.init()`
+
 ## What is autogrow?
 
 autogrow consists two files. One CSS file and one JavaScript file. autogrows purpose is to make `textarea`s on the web, more elegant and less frustrating to use.
