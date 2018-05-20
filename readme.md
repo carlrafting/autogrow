@@ -1,5 +1,7 @@
 <div style="text-align:center">
-![autogrow](logo.png)
+  <a href="https://carlrafting.com/autogrow">
+    <img src="logo.png" alt="autogrow">
+  </a>
 </div>
 
 ## What is autogrow?
@@ -119,17 +121,3 @@ Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Set
 Alias for `autogrow.all()`.
 
 Behaves similarly to previous versions of autogrow.
-
-## Download
-
-You can get the code by either cloning the repository, or by downloading a ZIP file.
-
-### Clone Source Code
-
-```bash
-$ git clone https://github.com/carlrafting/autogrow.git
-```
-
-### Download ZIP file
-
-Download the [latest release](https://github.com/carlrafting/autogrow/releases/latest) as a ZIP file.
