@@ -118,7 +118,7 @@ After:
 
 None
 
-#### Return value
+#### Return Value
 
 None
 
@@ -127,6 +127,16 @@ None
 Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
 
 ### `autogrow.init()`
+
+#### Arguments
+
+None
+
+#### Return Value
+
+None
+
+#### Description
 
 Alias for `autogrow.all()`.
 
