@@ -1,11 +1,4 @@
-/*
- * autogrow
- * https://carlrafting.com/autogrow
- *
- * GitHub Repository
- * https://github.com/carlrafting/autogrow
- */
-(function (global, window, document) {
+(function (global, document) {
 
   'use strict';
 
@@ -111,18 +104,21 @@
   }
 
   // is this a good idea for backwards compatibility?
-  autogrow.all = function () {
+  autogrow.all = function (options) {
     var elements = document.getElementsByTagName('textarea');
     var length = elements.length;
-    var rand = Math.floor(Math.random() * 10000000);
+    var rand;
     var element;
 
     for (var i = 0; i < length; i++) {
       element = elements[i];
+      rand = Math.floor(Math.random() * 10000000);
+      
       if (!element.id || element.id === '') {
         element.id = 'autogrow-'+rand;
       }
-      autogrow(element.id);
+      
+      autogrow(element.id, options);
     }
   };
   autogrow.init = autogrow.all;
@@ -131,4 +127,4 @@
   global.autogrow = autogrow;
   global.a = autogrow;
 
-}(this, this.window, this.document));
+}(this, this.document));

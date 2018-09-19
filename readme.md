@@ -22,6 +22,18 @@ It does this by expanding the height of the `textarea`, depending on the amount 
 
 You can read more in the article [Expanding Text Areas Made Elegant](http://www.alistapart.com/articles/expanding-text-areas-made-elegant/) by _Neil Jenkins_, where some of the code is adapted from.
 
+## Upgrading from 1.x.x
+
+If you've used autogrow previously, your html for autogrow should look something like this:
+
+```html
+<div class="autogrow-container">
+<textarea></textarea>
+</div>
+``` 
+
+This is fine and will work in version 2 as well. In version 2 it is no longer necessary to wrap the `textarea` element since autogrow generates a wrapper `div` for you, leaving the `div` might leave you with extra markup you don't need.
+
 ## New in Version 2
 
 Here's an overview of noteworthy changes in version 2.
@@ -112,11 +124,11 @@ After:
 </div>
 ```
 
-### `autogrow.all()`
+### `autogrow.all(options)`
 
 #### Arguments
 
-None
+`options`, type: `Object`, optional.
 
 #### Return Value
 
