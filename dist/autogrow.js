@@ -1,11 +1,16 @@
-(function (global, document) {
-
-  'use strict';
+(function (factory) {
+  typeof define === 'function' && define.amd ? define(factory) :
+  factory();
+}(function () { 'use strict';
 
   // exit if browser doesn't support following features
-  if (!document.querySelector
-  && !document.addEventListener
-  && !document.body.classList) return;
+  (function () {
+    if (!document.querySelector
+    && !document.addEventListener
+    && !document.body.classList) {
+      return;
+    }
+  }());
 
   function autogrow(target, options) {
     // set options argument to empty object if undefined to prevent error
@@ -113,18 +118,18 @@
     for (var i = 0; i < length; i++) {
       element = elements[i];
       rand = Math.floor(Math.random() * 10000000);
-      
+
       if (!element.id || element.id === '') {
         element.id = 'autogrow-'+rand;
       }
-      
+
       autogrow(element.id, options);
     }
   };
   autogrow.init = autogrow.all;
 
   // expose autogrow to global environment
-  global.autogrow = autogrow;
-  global.a = autogrow;
+  window.autogrow = autogrow;
+  window.a = autogrow;
 
-}(this, this.document));
+}));

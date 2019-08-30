@@ -245,43 +245,5 @@ header p {
   max-width: 100%;
   margin: auto;
 }
-.download {
-  background: dodgerblue;
-  color: white;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-}
-.download .container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.button-download {
-  font-weight: bold;
-  font-weight: 600;
-  background: white;
-  padding: .5em 1em;
-  display: inline-block;
-  border-radius: 4px;
-  margin-bottom: .25em;
-}
-.download-meta {
-  font-size: 80%;
-  color: rgba(255, 255, 255, .8);
-}
-@media (min-width: 46em) {
-  .download {
-    padding: 4em 2em;
-    margin-bottom: 4em;
-  }
-  .download .container {
-    flex-direction: row;
-  }
-  .download-box {
-    /* flex: 0 1 1; */
-    text-align: center;
-    align-self: center;
-  }
-}
 
 /* @end page components */

@@ -1,2 +1,4 @@
 .DS_Store
 *.esproj
+node_modules
+
