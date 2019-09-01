@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   input: 'src/autogrow.js',
   output: {

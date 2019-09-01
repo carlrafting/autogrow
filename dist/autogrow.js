@@ -1,16 +1,8 @@
-(function (factory) {
-  typeof define === 'function' && define.amd ? define(factory) :
-  factory();
-}(function () { 'use strict';
-
-  // exit if browser doesn't support following features
-  (function () {
-    if (!document.querySelector
-    && !document.addEventListener
-    && !document.body.classList) {
-      return;
-    }
-  }());
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = global || self, factory(global.autogrow = {}));
+}(this, function (exports) { 'use strict';
 
   function autogrow(target, options) {
     // set options argument to empty object if undefined to prevent error
@@ -19,6 +11,14 @@
     }
 
     if (!target && target === '') {
+      return;
+    }
+
+    if (
+      !document.querySelector &&
+      !document.addEventListener &&
+      !document.body.classList
+    ) {
       return;
     }
 
@@ -120,7 +120,7 @@
       rand = Math.floor(Math.random() * 10000000);
 
       if (!element.id || element.id === '') {
-        element.id = 'autogrow-'+rand;
+        element.id = 'autogrow-' + rand;
       }
 
       autogrow(element.id, options);
@@ -131,5 +131,9 @@
   // expose autogrow to global environment
   window.autogrow = autogrow;
   window.a = autogrow;
+
+  exports.autogrow = autogrow;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));

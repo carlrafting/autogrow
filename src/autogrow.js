@@ -1,21 +1,18 @@
-// exit if browser doesn't support following features
-(function () {
-  'use strict';
-  if (!document.querySelector
-  && !document.addEventListener
-  && !document.body.classList) {
-    return;
-  }
-}());
-
-function autogrow(target, options) {
-  'use strict';
+export function autogrow(target, options) {
   // set options argument to empty object if undefined to prevent error
   if (!options) {
     options = {};
   }
 
   if (!target && target === '') {
+    return;
+  }
+
+  if (
+    !document.querySelector &&
+    !document.addEventListener &&
+    !document.body.classList
+  ) {
     return;
   }
 
@@ -107,7 +104,6 @@ function autogrow(target, options) {
 
 // is this a good idea for backwards compatibility?
 autogrow.all = function (options) {
-  'use strict';
   var elements = document.getElementsByTagName('textarea');
   var length = elements.length;
   var rand;
@@ -118,7 +114,7 @@ autogrow.all = function (options) {
     rand = Math.floor(Math.random() * 10000000);
 
     if (!element.id || element.id === '') {
-      element.id = 'autogrow-'+rand;
+      element.id = 'autogrow-' + rand;
     }
 
     autogrow(element.id, options);
