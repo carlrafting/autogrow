@@ -16,8 +16,8 @@ export function autogrow(target, options) {
     return;
   }
 
-  var element;
-  var char;
+  let element;
+  let char;
 
   if (target instanceof HTMLTextAreaElement) {
     element = target;
@@ -40,17 +40,17 @@ export function autogrow(target, options) {
   if (!element) return;
 
   // set classnames for elements
-  var areaClass = options.areaClass || 'autogrow-area';
-  var containerClass = options.containerClass || 'autogrow';
-  var mirrorClass = options.mirrorClass || 'autogrow-mirror';
-  var spanClass = options.spanClass || 'autogrow-mirror-span';
+  const areaClass = options.areaClass || 'autogrow-area';
+  const containerClass = options.containerClass || 'autogrow';
+  const mirrorClass = options.mirrorClass || 'autogrow-mirror';
+  const spanClass = options.spanClass || 'autogrow-mirror-span';
 
   // create a bunch of elements
-  var frag = document.createDocumentFragment();
-  var container = document.createElement('div');
-  var mirror = document.createElement('pre');
-  var span = document.createElement('span');
-  var br = document.createElement('br');
+  const frag = document.createDocumentFragment();
+  const container = document.createElement('div');
+  const mirror = document.createElement('pre');
+  const span = document.createElement('span');
+  const br = document.createElement('br');
 
   // exit if element already has areaClass applied
   // don't want to execute the code twice
@@ -72,8 +72,9 @@ export function autogrow(target, options) {
 
   // create event listener for container
   container.addEventListener('input', function inputEvent(event) {
-    var t = event.target;
-    var text = t.value;
+    const t = event.target;
+    const text = t.value;
+
     if (t.classList.contains(areaClass)) {
       span.textContent = text;
     }
@@ -104,10 +105,10 @@ export function autogrow(target, options) {
 
 // is this a good idea for backwards compatibility?
 autogrow.all = function (options) {
-  var elements = document.getElementsByTagName('textarea');
-  var length = elements.length;
-  var rand;
-  var element;
+  const elements = document.getElementsByTagName('textarea');
+  const length = elements.length;
+  let rand;
+  let element;
 
   for (var i = 0; i < length; i++) {
     element = elements[i];
