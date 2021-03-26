@@ -2,8 +2,8 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true,
-    jasmine: true
+    es2021: true,
+    jasmine: true,
   },
   extends: 'eslint:recommended',
   parserOptions: {
