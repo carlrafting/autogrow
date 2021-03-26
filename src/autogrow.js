@@ -1,12 +1,60 @@
-export function autogrow(target, options) {
-  // set options argument to empty object if undefined to prevent error
-  if (!options) {
-    options = {};
-  }
+/** 
+ * @function autogrow
+ * @param target {(string|HTMLTextArea)} - Element in DOM to get or element to transform
+ * @param options {object} - Classes to apply to the generated HTML
+ * @returns {object}
+ *
+ */
 
+/**
+ * @example
+ * 
+ * The following object will be returned after calling the function:
+ * 
+ * {
+ *   container: HTMLDivElement,
+ *   mirror: HTMLPreElement,
+ *   span: HTMLSpanElement,
+ *   target: HTMLTextareaElement|String,
+ *   element: HTMLTextareaElement
+ * }
+ */
+
+/**
+ * Here's an example of the html that's generated when <code>autogrow('myID')</code> is called.
+ * 
+ *   
+ * @example
+ * <!-- Before --> 
+ * <textarea id="myID"></textarea>
+ * 
+ * autogrow('myID');
+ * 
+ * <!-- After -->
+ * <div class="autogrow">
+ *   <pre class="autogrow-mirror">
+ *     <span class="autogrow-mirror-span"></span>
+ *     <br>
+ *   </pre>
+ *   <textarea id="myID" class="autogrow-area"></textarea>
+ * </div>
+ */
+export function autogrow(target, options={}) {
   if (!target && target === '') {
     return;
   }
+
+  const _defaults = {
+    areaClass: 'autogrow-area',
+    containerClass: 'autogrow',
+    mirrorClass: 'autogrow-mirror',
+    spanClass: 'autogrow-mirror-span'
+  };
+
+  const _options = {
+    ..._defaults,
+    ...options
+  };
 
   if (
     !document.querySelector &&
@@ -40,10 +88,12 @@ export function autogrow(target, options) {
   if (!element) return;
 
   // set classnames for elements
-  const areaClass = options.areaClass || 'autogrow-area';
-  const containerClass = options.containerClass || 'autogrow';
-  const mirrorClass = options.mirrorClass || 'autogrow-mirror';
-  const spanClass = options.spanClass || 'autogrow-mirror-span';
+  const {
+    areaClass,
+    containerClass,
+    mirrorClass,
+    spanClass
+  } = _options;
 
   // create a bunch of elements
   const frag = document.createDocumentFragment();
@@ -95,14 +145,20 @@ export function autogrow(target, options) {
   }
 
   return {
-    container: container,
-    mirror: mirror,
-    span: span,
-    target: target,
-    element: element
+    container,
+    mirror,
+    span,
+    target,
+    element
   };
 }
 
+/**
+ * @function autogrow.all
+ * @param {object} options - Accepts same options as autogrow(target, options)
+ * 
+ * Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
+ */
 // is this a good idea for backwards compatibility?
 autogrow.all = function (options) {
   const elements = document.getElementsByTagName('textarea');
