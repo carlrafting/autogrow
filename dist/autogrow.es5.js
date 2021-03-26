@@ -1,6 +1,6 @@
 /**
  * autogrow.js
- * v2.0.1
+ * v2.0.2
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
