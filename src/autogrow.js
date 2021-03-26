@@ -1,34 +1,10 @@
-/** 
- * @function autogrow
- * @param target {(string|HTMLTextArea)} - Element in DOM to get or element to transform
- * @param options {object} - Classes to apply to the generated HTML
- * @returns {object}
- *
- */
-
 /**
- * @example
- * 
- * The following object will be returned after calling the function:
- * 
- * {
- *   container: HTMLDivElement,
- *   mirror: HTMLPreElement,
- *   span: HTMLSpanElement,
- *   target: HTMLTextareaElement|String,
- *   element: HTMLTextareaElement
- * }
- */
-
-/**
- * Here's an example of the html that's generated when <code>autogrow('myID')</code> is called.
- * 
- *   
- * @example
- * <!-- Before --> 
- * <textarea id="myID"></textarea>
+ * This is the generated HTML output when the function is called:
  * 
  * autogrow('myID');
+ * 
+ * <!-- Before --> 
+ * <textarea id="myID"></textarea>
  * 
  * <!-- After -->
  * <div class="autogrow">
@@ -38,12 +14,39 @@
  *   </pre>
  *   <textarea id="myID" class="autogrow-area"></textarea>
  * </div>
+ *  
+ * @namespace 
+ * @param target {(string|HTMLTextArea)} - Element in DOM to get or element to transform
+ * @param options {object} - Classes to apply to the generated HTML, merged with _defaults
+ * @returns {object} {
+    container,
+    mirror,
+    span,
+    target,
+    element
+  }
+ *
  */
+
 export function autogrow(target, options={}) {
   if (!target && target === '') {
     return;
   }
 
+  /**
+   * default classNames for generated HTML
+   * 
+   * @memberof autogrow
+   * @constant _defaults
+   * @type {object}
+   * @default
+   * @protected
+   * @property {string} areaClass - textarea class
+   * @property {string} containerClass - container div class
+   * @property {string} mirrorClass - mirror pre element class
+   * @property {string} spanClass - span element class
+   * 
+   */
   const _defaults = {
     areaClass: 'autogrow-area',
     containerClass: 'autogrow',
@@ -154,12 +157,12 @@ export function autogrow(target, options={}) {
 }
 
 /**
- * @function autogrow.all
- * @param {object} options - Accepts same options as autogrow(target, options)
- * 
  * Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
+ * 
+ * @memberof autogrow
+ * @method all
+ * @param {object} options - Accepts same options as autogrow(target, options)
  */
-// is this a good idea for backwards compatibility?
 autogrow.all = function (options) {
   const elements = document.getElementsByTagName('textarea');
   const length = elements.length;
@@ -177,6 +180,15 @@ autogrow.all = function (options) {
     autogrow(element.id, options);
   }
 };
+
+// is this a good idea for backwards compatibility?
+/**
+ * Alias for autogrow.all(). Backwards compatible with v1.x.x
+ * 
+ * @memberof autogrow
+ * @method init
+ * @alias all
+ */
 autogrow.init = autogrow.all;
 
 // expose autogrow to global environment
