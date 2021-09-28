@@ -5,12 +5,11 @@
   "type": "module",
   "main": "dist/autogrow.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "uvu tests autogrow.test.js",
     "rollup": "rollup -c",
     "lint": "eslint ./src",
     "styles": "csso ./src/autogrow.css -o ./dist/autogrow.min.css",
-    "docs": "jsdoc ./src -d ./docs -c ./jsdoc.config.json & serve ./docs",
-    "build": "npm run lint & npm run rollup & npm run styles & npm run docs",
+    "build": "npm run lint & npm run rollup & npm run styles",
     "start": "serve ."
   },
   "repository": {
@@ -26,9 +25,12 @@
   "devDependencies": {
     "csso-cli": "^3.0.0",
     "eslint": "^7.22.0",
-    "jsdoc": "^3.6.6",
+    "global-jsdom": "^8.2.0",
+    "jsdom": "^17.0.0",
     "rollup": "^2.42.4",
     "rollup-plugin-terser": "^7.0.2",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "stylelint-config-standard": "^22.0.0",
+    "uvu": "^0.5.1"
   }
 }
