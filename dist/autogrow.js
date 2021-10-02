@@ -1,6 +1,6 @@
 /**
  * autogrow.js
- * v2.1.1
+ * v2.1.2
  */
 /**
  * This is the generated HTML output when the function is called:

@@ -1,6 +1,6 @@
 {
   "name": "autogrow",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Less frustrating textareas.",
   "type": "module",
   "main": "dist/autogrow.js",
