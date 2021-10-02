@@ -5,7 +5,8 @@
   "type": "module",
   "main": "dist/autogrow.js",
   "files": [
-    "dist/*.js"
+    "dist/*.js",
+    "logo.png"
   ],
   "scripts": {
     "test": "uvu tests autogrow.test.js",
