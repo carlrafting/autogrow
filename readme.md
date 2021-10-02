@@ -18,8 +18,18 @@
 
 ## Install
 
+autogrow can be installed via a package-manager like npm or yarn. There is currently no package published on the npm registry, instead you can install directly from the GitHub repository.
+
+Install latest version:
+
 ```
-npm i carlrafting/autogrow@2.1.0
+npm i carlrafting/autogrow
+```
+
+Install version according to semver:
+
+```
+npm i carlrafting/autogrow#semver:^2.0
 ```
 
 ## What is autogrow?
