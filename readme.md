@@ -6,6 +6,7 @@
 
 ## Table of Contents
 
+- [Install](#install)
 - [What is autogrow?](#what-is-autogrow)
 - [New in Version 2](#new-in-version-2)
 - [Upgrading from 1.x.x](#upgrading-from-1xx)
@@ -14,6 +15,12 @@
   - `autogrow(target, options)`
   - `autogrow.all()`
   - `autogrow.init()`
+
+## Install
+
+```
+npm i carlrafting/autogrow@2.1.0
+```
 
 ## What is autogrow?
 

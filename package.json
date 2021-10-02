@@ -4,13 +4,17 @@
   "description": "Less frustrating textareas.",
   "type": "module",
   "main": "dist/autogrow.js",
+  "files": [
+    "dist/*.js"
+  ],
   "scripts": {
     "test": "uvu tests autogrow.test.js",
     "rollup": "rollup -c",
-    "lint": "eslint ./src",
-    "styles": "csso ./src/autogrow.css -o ./dist/autogrow.min.css",
-    "build": "npm run lint & npm run rollup & npm run styles",
-    "start": "serve ."
+    "lint": "eslint src/*.js & stylelint src/*.css",
+    "styles": "csso src/autogrow.css -o dist/autogrow.min.css --debug",
+    "build": "npm test & npm run lint & npm run rollup & npm run styles",
+    "start": "serve .",
+    "version": "npm run build && git add dist"
   },
   "repository": {
     "type": "git",
@@ -30,7 +34,8 @@
     "rollup": "^2.42.4",
     "rollup-plugin-terser": "^7.0.2",
     "serve": "^11.3.2",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
     "uvu": "^0.5.1"
   }
 }

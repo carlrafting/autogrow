@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": "stylelint-config-recommended",
   "ignoreFiles": [
     "examples/basic/global.css",
     "**/*.cjs",
