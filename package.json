@@ -1,6 +1,6 @@
 {
   "name": "autogrow",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Less frustrating textareas.",
   "type": "module",
   "main": "dist/autogrow.js",
@@ -13,7 +13,7 @@
     "test": "uvu tests autogrow.test.js",
     "rollup": "rollup -c",
     "lint": "eslint src/*.js & stylelint src/*.css",
-    "styles": "csso src/autogrow.css -o dist/autogrow.min.css --debug",
+    "styles": "cpy src/autogrow.css ./dist && csso src/autogrow.css -o dist/autogrow.min.css --debug",
     "build": "npm test & npm run lint & npm run rollup & npm run styles",
     "start": "serve .",
     "version": "npm run build && git add dist"
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/carlrafting/autogrow#readme",
   "devDependencies": {
+    "cpy-cli": "^3.1.1",
     "csso-cli": "^3.0.0",
     "eslint": "^7.22.0",
     "global-jsdom": "^8.2.0",
