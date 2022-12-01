@@ -31,14 +31,14 @@
   "devDependencies": {
     "cpy-cli": "^3.1.1",
     "csso-cli": "^3.0.0",
-    "eslint": "^7.22.0",
-    "global-jsdom": "^8.2.0",
+    "eslint": "^7.32.0",
+    "global-jsdom": "^8.6.0",
     "jsdom": "^17.0.0",
-    "rollup": "^2.42.4",
+    "rollup": "^2.79.1",
     "rollup-plugin-terser": "^7.0.2",
     "serve": "^11.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
-    "uvu": "^0.5.1"
+    "uvu": "^0.5.6"
   }
 }
