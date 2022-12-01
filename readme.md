@@ -4,18 +4,6 @@
   </a>
 </div>
 
-## Table of Contents
-
-- [Install](#install)
-- [What is autogrow?](#what-is-autogrow)
-- [New in Version 2](#new-in-version-2)
-- [Upgrading from 1.x.x](#upgrading-from-1xx)
-- [How to Use autogrow](#how-to-use-autogrow)
-- [API](#api)
-  - `autogrow(target, options)`
-  - `autogrow.all()`
-  - `autogrow.init()`
-
 ## Install
 
 autogrow can be installed via a package-manager like npm or yarn. There is currently no package published on the npm registry, instead you can install directly from the GitHub repository.
