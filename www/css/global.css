@@ -306,56 +306,6 @@ footer {
   font-size: .825em;
 }
 
-@keyframes colorSwitch {
-  0% {
-    color: aqua;
-  }
-
-  8% {
-    color: red;
-  }
-
-  16% {
-    color: lime;
-  }
-
-  24% {
-    color: fuchsia;
-  }
-
-  32% {
-    color: maroon;
-  }
-
-  40% {
-    color: magenta;
-  }
-
-  48% {
-    color: salmon;
-  }
-
-  56% {
-    color: crimson;
-  }
-
-  64% {
-    color: deeppink;
-  }
-
-  72% {
-    color: firebrick;
-  }
-
-  to {
-    color: cyan;
-  }
-}
-
-.animation-colorSwitch {
-  animation: colorSwitch 10s ease-in-out 0s infinite;
-}
-
 header p {
   font-size: 1.25em;
   line-height: 1.25;
