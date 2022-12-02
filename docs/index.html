@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>autogrow - textareas 2.0</title>
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/dist/autogrow.css">
+</head>
+<body>
+
+<header>
+<div class="container">
+<h1><img src="/logo.png" alt="autogrow"></h1>
+<p>Less frustrating textareas...</p>
+</div>
+</header>
+
+<div class="demo">
+<div class="container">
+<label for="autogrow">Try it Out!</label>
+<textarea
+  autofocus
+  id="autogrow"
+  rows="14"
+  cols="60"
+  placeholder="Type something…">
+</textarea>
+</div>
+</div>
+
+<main>
+<div class="container">
+<h2>What is autogrow?</h2>
+<p>autogrow consists two files. One CSS file and one JavaScript file. autogrows purpose is to make <code>textarea</code>s on the web, more elegant and less frustrating to use.</p>
+<p>It does this by expanding the height of the <code>textarea</code>, depending on the amount of content it contains. This solves the problem of having to scroll inside the textarea, which can be a frustrating experience, especially on mobile devices.</p>
+<p>You can read more in the article <a href="http://www.alistapart.com/articles/expanding-text-areas-made-elegant/">Expanding Text Areas Made Elegant</a> by <em>Neil Jenkins</em>, where some of the code is adapted from.</p>
+<h2>New in Version 2</h2>
+<p>Here's an overview of noteworthy changes in version 2.</p>
+<ul>
+<li>Accepts <code>HTMLTextAreaElement</code> as <code>target</code> argument to <code>autogrow()</code>. Doesn't need to be attached to the DOM.</li>
+<li>Creates DOM Elements with <code>document.createElement()</code> instead of setting string values on <code>Element.innerHTML</code></li>
+<li>It's now possible to use <code>autogrow()</code> for targeting individual elements.</li>
+<li><code>autogrow.init()</code> is now alias for <code>autogrow.all()</code>. Makes it possible to upgrade from previous versions without breaking.</li>
+<li>Makes use of a <code>DocumentFragment</code> for better performance.</li>
+</ul>
+<h2>Upgrading from 1.x.x</h2>
+<p>If you've used autogrow previously, your html for autogrow should look something like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>This is fine and will work in version 2 as well. In version 2 it is no longer necessary to wrap the <code>textarea</code> element since autogrow generates a wrapper <code>div</code> for you, leaving the <code>div</code> might leave you with extra markup you don't need.</p>
+<h2>How to Use autogrow</h2>
+<p>Using autogrow is simple. Simply call <code>autogrow()</code> by providing the element to select as the first argument.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// get element by id</span><br><span class="token function">autogrow</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// get element with id selector</span><br><span class="token function">autogrow</span><span class="token punctuation">(</span><span class="token string">'#textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// get element with class selector</span><br><span class="token function">autogrow</span><span class="token punctuation">(</span><span class="token string">'.textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// get element by id and provide custom styling options</span><br><span class="token function">autogrow</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">areaClass</span><span class="token operator">:</span> <span class="token string">'my-area-class'</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">containerClass</span><span class="token operator">:</span> <span class="token string">'my-container-class'</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">mirrorClass</span><span class="token operator">:</span> <span class="token string">'my-mirror-class'</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">spanClass</span><span class="token operator">:</span> <span class="token string">'my-span-class'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// create textarea and run it through autogrow</span><br><span class="token keyword">var</span> textarea <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">var</span> ret <span class="token operator">=</span> <span class="token function">autogrow</span><span class="token punctuation">(</span>textarea<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// append results to DOM</span><br>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>ret<span class="token punctuation">.</span>container<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2>API</h2>
+<h3><code>autogrow(target, options)</code></h3>
+<p>Here's the html that's generated when <code>autogrow('autogrow')</code> is called.</p>
+<p>Before:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span></code></pre>
+<p>After:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow-mirror<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow-mirror-span<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>autogrow-area<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<h4>Arguments</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>target</code></td>
+<td><code>String</code> or <code>HTMLTextareaElement</code></td>
+<td>false</td>
+<td>element in DOM to get or element to transform. If <code>target</code> is <code>HTMLTextAreaElement</code>, it's not necessary for element to already exist in DOM.</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>Object</code></td>
+<td>true</td>
+<td>Options for generated html</td>
+</tr>
+</tbody>
+</table>
+<h4>Return Value</h4>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">{</span><br>  <span class="token literal-property property">container</span><span class="token operator">:</span> HTMLDivElement<span class="token punctuation">,</span><br>  <span class="token literal-property property">mirror</span><span class="token operator">:</span> HTMLPreElement<span class="token punctuation">,</span><br>  <span class="token literal-property property">span</span><span class="token operator">:</span> HTMLSpanElement<span class="token punctuation">,</span><br>  <span class="token literal-property property">target</span><span class="token operator">:</span> HTMLTextareaElement<span class="token operator">|</span>String<span class="token punctuation">,</span><br>  <span class="token literal-property property">element</span><span class="token operator">:</span> HTMLTextareaElement<br><span class="token punctuation">}</span></code></pre>
+<p>The html generated when calling <code>autogrow</code> can be customized with a second argument, it accepts the following options:</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">{</span><br>    <span class="token literal-property property">areaClass</span><span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token comment">// class to apply to textarea</span><br>    <span class="token literal-property property">containerClass</span><span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token comment">// class for autogrow container</span><br>    <span class="token literal-property property">mirrorClass</span><span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token comment">// class for mirror element</span><br>    <span class="token literal-property property">spanClass</span><span class="token operator">:</span> String <span class="token comment">// class for span element</span><br><span class="token punctuation">}</span></code></pre>
+<h3><code>autogrow.all(options)</code></h3>
+<h4>Arguments</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td>Object</td>
+<td>true</td>
+<td>Gets all <code>textarea</code> elements from DOM and runs <code>autogrow()</code> on each element. Sets an id on element if it doesn't already have it.</td>
+</tr>
+</tbody>
+</table>
+<h4>Return Value</h4>
+<p>None</p>
+<h3><code>autogrow.init()</code></h3>
+<h4>Arguments</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>Alias for <code>autogrow.all()</code>. Behaves similarly to previous versions of autogrow.</td>
+</tr>
+</tbody>
+</table>
+<h4>Return Value</h4>
+<p>None</p>
+
+</div>
+</main>
+
+<footer>
+...
+</footer>
+
+<script type="module">
+import { autogrow } from '/dist/autogrow.js';
+autogrow('autogrow');
+</script>
+
+</body>
+</html>

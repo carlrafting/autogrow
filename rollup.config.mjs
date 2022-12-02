@@ -1,5 +1,5 @@
-import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import terser from '@rollup/plugin-terser';
+import pkg from './package.json' assert { type: "json" };
 
 const banner = `/**
  * ${pkg.name}.js

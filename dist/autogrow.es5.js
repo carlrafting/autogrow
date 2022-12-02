@@ -207,6 +207,4 @@
 
   exports.autogrow = autogrow;
 
-  Object.defineProperty(exports, '__esModule', { value: true });
-
 }));

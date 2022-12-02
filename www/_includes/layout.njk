@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{{ title }}</title>
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/dist/autogrow.css">
+</head>
+<body>
+
+<header>
+<div class="container">
+<h1><img src="/logo.png" alt="autogrow"></h1>
+<p>Less frustrating textareas...</p>
+</div>
+</header>
+
+<div class="demo">
+<div class="container">
+<label for="autogrow">Try it Out!</label>
+<textarea
+  autofocus
+  id="autogrow"
+  rows="14"
+  cols="60"
+  placeholder="Type something…">
+</textarea>
+</div>
+</div>
+
+<main>
+<div class="container">
+{{ content | safe }}
+</div>
+</main>
+
+<footer>
+...
+</footer>
+
+<script type="module">
+import { autogrow } from '/dist/autogrow.js';
+autogrow('autogrow');
+</script>
+
+</body>
+</html>
