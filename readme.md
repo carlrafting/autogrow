@@ -22,4 +22,4 @@ npm i carlrafting/autogrow#semver:^2.0
 
 ## Documentation
 
-Check out the website for documentation on how to use autogrow.
+[Check out the website](https://carlrafting.com/autogrow) for documentation on how to use autogrow.
