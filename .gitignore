@@ -1,4 +1,5 @@
 .DS_Store
 *.esproj
 node_modules
+docs/_eleventy_redirect
 

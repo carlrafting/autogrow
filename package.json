@@ -13,7 +13,7 @@
     "rollup": "rollup -c",
     "lint": "eslint src/*.js & stylelint src/*.css",
     "styles": "cpy src/autogrow.css ./dist && csso src/autogrow.css -o dist/autogrow.min.css --debug",
-    "build:www": "eleventy --input=www --output=docs",
+    "build:www": "eleventy --pathprefix=/autogrow --input=www --output=docs",
     "build": "npm test & npm run lint & npm run rollup & npm run styles & npm run build:www",
     "dev:www": "npm run build:www  -- --serve",
     "version": "npm run build && git add dist"
