@@ -412,7 +412,7 @@ aside li {
 .demo textarea:focus {
   border-radius: inherit;
   outline: none;
-  box-shadow: 0 0 2px 2px dodgerblue;
+  box-shadow: 0 0 0 4px dodgerblue;
 }
 
 /* @end page components */
