@@ -1,9 +1,26 @@
 ---
-layout: layout.njk
 title: autogrow - textareas 2.0
+toc:
+  what:
+    label: What is autogrow?
+    id: "what"
+  new: 
+    label: New in Version 2
+    id: "v2"
+  upgrading:
+    label: Upgrading from 1.x.x
+    id: "upgrading"
+  usage:
+    label: How to Use autogrow
+    id: "usage"
+  api:
+    label: API
+    id: "api"
 ---
 
-## What is autogrow?
+## {{ toc.what.label }} 
+
+{#foo}
 
 autogrow consists two files. One CSS file and one JavaScript file. autogrows purpose is to make `textarea`s on the web, more elegant and less frustrating to use.
 
@@ -11,7 +28,7 @@ It does this by expanding the height of the `textarea`, depending on the amount 
 
 You can read more in the article [Expanding Text Areas Made Elegant](http://www.alistapart.com/articles/expanding-text-areas-made-elegant/) by _Neil Jenkins_, where some of the code is adapted from.
 
-## New in Version 2
+## {{ toc.new.label }}
 
 Here's an overview of noteworthy changes in version 2.
 
@@ -21,7 +38,7 @@ Here's an overview of noteworthy changes in version 2.
 * `autogrow.init()` is now alias for `autogrow.all()`. Makes it possible to upgrade from previous versions without breaking.
 * Makes use of a `DocumentFragment` for better performance.
 
-## Upgrading from 1.x.x
+## {{ toc.upgrading.label }}
 
 If you've used autogrow previously, your html for autogrow should look something like this:
 
@@ -33,7 +50,7 @@ If you've used autogrow previously, your html for autogrow should look something
 
 This is fine and will work in version 2 as well. In version 2 it is no longer necessary to wrap the `textarea` element since autogrow generates a wrapper `div` for you, leaving the `div` might leave you with extra markup you don't need.
 
-## How to Use autogrow
+## {{ toc.usage.label }}
 
 Using autogrow is simple. Simply call `autogrow()` by providing the element to select as the first argument.
 
@@ -61,7 +78,7 @@ var ret = autogrow(textarea);
 // append results to DOM
 document.body.appendChild(ret.container);
 ```
-## API
+## {{ toc.api.label }}
 
 ### `autogrow(target, options)`
 
