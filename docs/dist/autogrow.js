@@ -199,4 +199,4 @@ autogrow.init = autogrow.all;
 window.autogrow = autogrow;
 window.a = autogrow;
 
-export { autogrow };
+export { autogrow, autogrow as default };

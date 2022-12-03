@@ -13,6 +13,7 @@ export default {
       banner,
       file: `dist/${pkg.name}.es5.js`,
       format: 'umd',
+      exports: "named",
       name: pkg.name
     },
     {
@@ -28,6 +29,7 @@ export default {
     {
       file: `dist/${pkg.name}.es5.min.js`,
       format: 'umd',
+      exports: "named",
       name: pkg.name,
       plugins: [terser()]
     }

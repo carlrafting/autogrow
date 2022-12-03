@@ -206,5 +206,8 @@
   window.a = autogrow;
 
   exports.autogrow = autogrow;
+  exports.default = autogrow;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));

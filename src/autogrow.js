@@ -156,6 +156,8 @@ export function autogrow(target, options={}) {
   };
 }
 
+export default autogrow;
+
 /**
  * Gets all `textarea` elements from DOM and runs `autogrow()` on each element. Sets an id on element if it doesn't already have it.
  * 
