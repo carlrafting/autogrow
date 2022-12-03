@@ -330,8 +330,7 @@ main {
 }
 
 main *:target {
-  color: var(--color-dark);
-  background-color: yellow;
+  outline: 1px solid dodgerblue;
   padding: .5rem 1rem;
   margin-inline-start: -1rem;
   margin-inline-end: -1rem;
