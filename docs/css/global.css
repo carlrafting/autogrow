@@ -373,6 +373,38 @@ aside li {
 
 /* @group page components */
 
+.pkg {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: end;
+}
+
+a.github {
+  color: var(--color-lighter);
+  background-color: var(--color-darker);
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: .25rem;
+}
+
+a.github:focus,
+a.github:hover {
+  text-decoration: none;
+  background-color: #000;
+}
+
+.github svg {
+  display: inline-block;
+  fill: var(--color-lighter);
+  vertical-align: sub;
+  width: 2rem;
+  height: 2rem;
+}
+
 .demo {
   padding: 1.5em 1em;
   position: relative;

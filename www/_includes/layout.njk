@@ -11,10 +11,21 @@
 <body>
 
 <header>
+<ul class="pkg">
+  <li>
+    <a class="github" href="{{ pkg.homepage }}">
+      {{ github_icon | safe }}
+      GitHub
+    </a><br>
+  </li>
+  <li>
+    v{{ pkg.version }}
+  </li>
+</ul>
 <div class="container">
-<img src="./logo.png" alt="autogrow">
-<h1>autogrow</h1>
-<p>Less frustrating textareas...</p>
+  <img src="./logo.png" alt="autogrow">
+  <h1>autogrow</h1>
+  <p>Less frustrating textareas...</p>
 </div>
 </header>
 
