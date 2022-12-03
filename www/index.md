@@ -53,6 +53,8 @@ This is fine and will work in version 2 as well. In version 2 it is no longer ne
 Using autogrow is simple. Simply call `autogrow()` by providing the element to select as the first argument.
 
 ```js
+import autogrow from 'autogrow';
+
 // get element by id
 autogrow('textarea');
 
@@ -71,8 +73,8 @@ autogrow('textarea', {
 });
 
 // create textarea and run it through autogrow
-var textarea = document.createElement('textarea');
-var ret = autogrow(textarea);
+const textarea = document.createElement('textarea');
+const ret = autogrow(textarea);
 // append results to DOM
 document.body.appendChild(ret.container);
 ```

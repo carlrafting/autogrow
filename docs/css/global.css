@@ -210,7 +210,7 @@ pre,
 code {
   font-size: 1rem;
   background-color: var(--pre-background-color);
-  font-family: Menlo, Cascadia Code, 'Courier New', Courier, monospace;
+  font-family: Cascadia Code, Fira Code, ui-monospace, Menlo, 'Courier New', Courier, monospace;
   border-radius: .25rem;
 }
 
