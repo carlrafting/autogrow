@@ -17,4 +17,5 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("dist/autogrow.css");
     eleventyConfig.addPassthroughCopy("dist/autogrow.js");
     eleventyConfig.addPassthroughCopy("logo.png");
+    eleventyConfig.addPassthroughCopy("logo.avif");
 };

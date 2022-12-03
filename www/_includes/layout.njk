@@ -23,7 +23,17 @@
   </li>
 </ul>
 <div class="container">
-  <img src="./logo.png" alt="autogrow">
+  <picture>
+    <source srcset="./logo.avif" type="image/avif" />
+    <source srcset="./logo.png" type="image/png" />
+    <img 
+      src="./logo.png"
+      decoding="async"
+      loading="lazy"
+      width="520"
+      height="530"
+      alt="autogrow">
+  </picture>
   <h1>autogrow</h1>
   <p>Less frustrating textareas...</p>
 </div>
