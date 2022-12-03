@@ -20,8 +20,6 @@ toc:
 
 ## {{ toc.what.label }} 
 
-{#foo}
-
 autogrow consists two files. One CSS file and one JavaScript file. autogrows purpose is to make `textarea`s on the web, more elegant and less frustrating to use.
 
 It does this by expanding the height of the `textarea`, depending on the amount of content it contains. This solves the problem of having to scroll inside the textarea, which can be a frustrating experience, especially on mobile devices.

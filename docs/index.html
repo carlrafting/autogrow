@@ -12,7 +12,8 @@
 
 <header>
 <div class="container">
-<h1><img src="./logo.png" alt="autogrow"></h1>
+<img src="./logo.png" alt="autogrow">
+<h1>autogrow</h1>
 <p>Less frustrating textareas...</p>
 </div>
 </header>
@@ -31,6 +32,34 @@
 </div>
 
 <main>
+<aside>
+
+<h2>Table of Contents</h2>
+<ul>
+  
+  <li>
+    <a href="#what" data-id="what">What is autogrow?</a>
+  </li>
+  
+  <li>
+    <a href="#v2" data-id="v2">New in Version 2</a>
+  </li>
+  
+  <li>
+    <a href="#upgrading" data-id="upgrading">Upgrading from 1.x.x</a>
+  </li>
+  
+  <li>
+    <a href="#usage" data-id="usage">How to Use autogrow</a>
+  </li>
+  
+  <li>
+    <a href="#api" data-id="api">API</a>
+  </li>
+  
+</ul>
+
+</aside>
 <div class="container">
 <h2>What is autogrow?</h2>
 <p>autogrow consists two files. One CSS file and one JavaScript file. autogrows purpose is to make <code>textarea</code>s on the web, more elegant and less frustrating to use.</p>
@@ -143,6 +172,21 @@
 <script type="module">
 import { autogrow } from "./dist/autogrow.js";
 autogrow('autogrow');
+
+const toc = document.querySelectorAll("aside ul a");
+const headings = document.querySelectorAll("main h2");
+
+if (toc) {
+  for (const h of headings) {
+    // console.log(h)
+    for (const t of toc) {
+      if (t.textContent === h.textContent) {
+        console.log(t)
+        h.id = t.getAttribute("data-id");
+      }
+    }
+  }
+}
 </script>
 
 </body>

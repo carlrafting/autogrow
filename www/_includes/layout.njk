@@ -12,7 +12,8 @@
 
 <header>
 <div class="container">
-<h1><img src="./logo.png" alt="autogrow"></h1>
+<img src="./logo.png" alt="autogrow">
+<h1>autogrow</h1>
 <p>Less frustrating textareas...</p>
 </div>
 </header>
@@ -31,6 +32,18 @@
 </div>
 
 <main>
+<aside>
+{% if toc %}
+<h2>Table of Contents</h2>
+<ul>
+  {% for _, item in toc %}
+  <li>
+    <a href="#{{ item.id }}" data-id="{{ item.id }}">{{ item.label }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+</aside>
 <div class="container">
 {{ content | safe }}
 </div>
@@ -43,6 +56,21 @@
 <script type="module">
 import { autogrow } from "./dist/autogrow.js";
 autogrow('autogrow');
+
+const toc = document.querySelectorAll("aside ul a");
+const headings = document.querySelectorAll("main h2");
+
+if (toc) {
+  for (const h of headings) {
+    // console.log(h)
+    for (const t of toc) {
+      if (t.textContent === h.textContent) {
+        console.log(t)
+        h.id = t.getAttribute("data-id");
+      }
+    }
+  }
+}
 </script>
 
 </body>
