@@ -1,10 +1,14 @@
 import terser from '@rollup/plugin-terser';
 import pkg from './package.json' assert { type: "json" };
 
-const banner = `/**
- * ${pkg.name}.js
- * v${pkg.version}
- */`;
+export const banner = `/**
+ * @name      ${pkg.name}
+ * @version   ${pkg.version}
+ * @license   MIT
+ * @see       <https://carlrafting.com/autogrow/>
+ * @see       <https://github.com/carlrafting/autogrow>
+ */
+`;
 
 const esm = ({ minify = false } = {}) => ({
   banner,
