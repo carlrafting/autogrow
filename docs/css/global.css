@@ -360,6 +360,7 @@ aside li {
       /* align-self: start; */
     }
     aside ul {
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       padding-block-start: .5rem;

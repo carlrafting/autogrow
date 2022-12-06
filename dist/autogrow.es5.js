@@ -1,7 +1,11 @@
 /**
- * autogrow.js
- * v2.1.4
+ * @name      autogrow
+ * @version   2.1.4
+ * @license   MIT
+ * @see       <https://carlrafting.com/autogrow/>
+ * @see       <https://github.com/carlrafting/autogrow>
  */
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
